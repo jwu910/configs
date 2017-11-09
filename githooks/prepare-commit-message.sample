@@ -6,10 +6,15 @@
 # message's source.  The hook's purpose is to edit the commit
 # message file.  If the hook fails with a non-zero status,
 # the commit is aborted.
+# 
+# To configure, uncomment $HOOK_MESSAGE and add the desired message in the quotes.
+# If the HOOK_MESSAGE is not set the commit message that gets prepared will be blank (default git commit behavior)
 #
 # To enable this hook, rename this file to "prepare-commit-msg".
 #
-# Automatically adds Topic-Placeholders, User, JIRA-Ticket and branch description (if available) to every commit message.
+# Automatically adds desired text to the start of your commit message.
+# Supports pulling the current git User ($USER), the JIRA-Ticket ($JIRA_TICKET)
+# branch name ($NAME), and branch description ($DESCRIPTION) to every commit message.
 #
 
 JIRA_TICKET=$(git rev-parse --abbrev-ref HEAD | grep -Eo '([A-Z]{3,}-)([0-9]+)' -m 1)
@@ -17,8 +22,8 @@ USER=git var GIT_AUTHOR_IDENT
 NAME=$(git branch | grep '*' | sed 's/* //') 
 DESCRIPTION=$(git config branch."$NAME".description)
 
-# if you want a different message, add it here
-HOOK_MESSAGE="[<TOPIC> : $USER] <DETAILS> - $JIRA_TICKET"
+# Variable to set desired message
+#HOOK_MESSAGE="[<TOPIC> : $USER] <DETAILS> - $JIRA_TICKET"
 
 echo "$HOOK_MESSAGE"|cat - "$1" > /tmp/out && mv /tmp/out "$1"
 if [ -n "$DESCRIPTION" ] 
