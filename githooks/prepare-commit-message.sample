@@ -17,7 +17,10 @@ USER=git var GIT_AUTHOR_IDENT
 NAME=$(git branch | grep '*' | sed 's/* //') 
 DESCRIPTION=$(git config branch."$NAME".description)
 
-echo "[<TOPIC> : $USER] <DETAILS> - $JIRA_TICKET"|cat - "$1" > /tmp/out && mv /tmp/out "$1"
+# if you want a different message, add it here
+HOOK_MESSAGE="[<TOPIC> : $USER] <DETAILS> - $JIRA_TICKET"
+
+echo "$HOOK_MESSAGE"|cat - "$1" > /tmp/out && mv /tmp/out "$1"
 if [ -n "$DESCRIPTION" ] 
 then
    echo "" >> "$1"
