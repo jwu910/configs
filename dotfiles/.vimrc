@@ -81,7 +81,6 @@ syntax on
 set background=dark
 set expandtab
 set hlsearch
-set hlsearch
 set mouse=a
 set number
 set relativenumber

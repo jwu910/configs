@@ -236,7 +236,8 @@ bar {
 }
 
 #exec xrandr --setprovideroutputsource nouveau Intel
-exec compton -bcCfG --detect-client-opacity --fade-delta=5 --shadow-opacity=0.5 --shadow-offset-x=-5 --shadow-offset-y=-5 &
+#exec compton --config ~/.config/.compton.conf -bcCfG --detect-client-opacity --fade-delta=5 --shadow-opacity=0.5 --shadow-offset-x=-5 --shadow-offset-y=-5 &
+exec --no-startup-id compton --config ~/.config/.compton.conf
 #exec --no-startup-id blueman-applet
 exec --no-startup-id dunst
 exec --no-startup-id nm-applet
