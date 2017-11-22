@@ -202,6 +202,9 @@ bindsym Print exec "scrshot"
 # Rofi
 bindsym $mod+space exec rofi -show run
 
+# Lock screen
+bindsym $mod+Shift+p exec py3lock
+
 ##############################################################################
 # Media Key Bindings
 ##############################################################################
