@@ -16,51 +16,52 @@ LOOP_DIR=`find "$LIFERAY_DIR/ee-6.2.x/liferay-plugins-ee" -maxdepth 3 -type d -n
 LOOP_THEME=`find "$LIFERAY_DIR/ee-6.2.x/liferay-plugins-ee" -maxdepth 3 -type d -name "loop-theme" -print -quit`
 
 # Check if ant format-source passes
-echo -e "${Y}Check source formatting? No? \nRunning 'ant format-source' on $LOOP_DIR${NC}" &&
+echo -e "${Y}[didYou] Check source formatting? No? \n[didYou] Running 'ant format-source' on $LOOP_DIR${NC}" &&
 	cd "$LOOP_DIR" &&
 	ant format-source &&
-echo -e "${Y}Running 'ant format-source' on $LOOP_THEME${NC}" &&
+echo -e "${Y}[didYou] Running 'ant format-source' on $LOOP_THEME${NC}" &&
 	cd "$LOOP_THEME" &&
 	ant format-source &&
 
 # Chheck if changed files satisfy check source formatting
-echo -e "${Y}Check source formatting--again? No? \nRunning 'sfm ee-6.2.x' on changed files in $LOOP_DIR${NC}" &&
+echo -e "${Y}[didYou] Check source formatting--again? No? \n[didYou] Running 'sfm ee-6.2.x' on changed files in $LOOP_DIR${NC}" &&
 	cd "$LOOP_DIR" &&
 	ERRORS=`sfm ee-6.2.x | grep "Line" | wc -l`
 	if [ "$ERRORS" -ne "0" ]; then
-		echo -e "${R}Please resolve formatting errors before continuing.${NC}"
+		echo -e "${R}[didYou] Please resolve formatting errors before continuing.${NC}"
 		sfm ee-6.2.x
 		exit 1
 	else
-		echo -e "${G}No unresolved formatting errors. Continuing.${NC}"
+		echo -e "${G}[didYou] No unresolved formatting errors. Continuing.${NC}"
 	fi &&
 
 # Check if changed files satisfy check source formatting
-echo -e "${Y}Running 'sfm ee-6.2.x' on changed files in $LOOP_THEME${NC}" &&
+echo -e "${Y}[didYou] Running 'sfm ee-6.2.x' on changed files in $LOOP_THEME${NC}" &&
 	cd "$LOOP_THEME" &&
 	ERRORS=`sfm ee-6.2.x | grep "Line" | wc -l`
 	if [ "$ERRORS" -ne "0" ]; then
-		echo -e "${R}Please resolve formatting errors before continuing.${NC}"
+		echo -e "${R}[didYou] Please resolve formatting errors before continuing.${NC}"
 		sfm ee-6.2.x
 		exit 1
 	else
-		echo -e "${G}No unresolved formatting errors. Continuing.${NC}"
+		echo -e "${G}[didYou] No unresolved formatting errors. Continuing.${NC}"
 	fi &&
 
 # Check if test suites pass
-echo -e "${Y}Check if tests passed? No? \nRunning 'npm test'${NC}" &&
+echo -e "${Y}[didYou] Check if tests passed? No? \n[didYou] Running 'npm test'${NC}" &&
 	cd "$LOOP_DIR" && 
 	npm test &&
 
 # Check if user has any tracked/untracked changes
-echo -e "${Y}Check if you have uncommited changes? No? \nChecking for unsaved changes${NC}"
+echo -e "${Y}[didYou] Check if you have uncommited changes? No? \n[didYou] Checking for unsaved changes${NC}"
 	cd "$LOOP_DIR" &&
 	UNSAVED_CHANGES=`git status --porcelain | wc -l` &&
 	if [ "$UNSAVED_CHANGES" -ne "0" ]; then
-		echo -e "${R}Please resolve uncommited changes before continuing.${NC}"
+		echo -e "${R}[didYou] Please resolve uncommited changes before continuing.${NC}"
+		git status
 		exit 1
 	else
-		echo -e "${G}No unresolved changes. Continuing.${NC}"
+		echo -e "${G}[didYou] No unresolved changes. Continuing.${NC}"
 	fi &&
 
 echo -e "${G}All checks passed.${NC}"
