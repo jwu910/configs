@@ -167,7 +167,7 @@ function ghub {
 	local uri=${giturl##*@}
 		uri=${uri##*://}
 	local urlPath=${uri#*[/:]*}
-	local openUrl="https://github.com/$urlPath"    
+	local openUrl="https://github.com/$urlPath"
 	xdg-open $openUrl &
 }
 
