@@ -175,7 +175,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
 alias scrshot='sh ~/configs/scripts/screenshot.sh -s'
-	
+
 if [ -d "$HOME/.bin" ] ; then
   PATH="$PATH:$HOME/.bin"
 fi
@@ -210,3 +210,6 @@ source ~/configs/includes/.bashrc-liferay
 
 # Adding autocomplete for 'we'
 [ -f ~/.we_autocomplete ] && source ~/.we_autocomplete
+
+export MONITOR="DP-1"
+export GITHUB_TOKEN="2afeae8da410e9bf15adcccacd927f9b46d46bbf"
