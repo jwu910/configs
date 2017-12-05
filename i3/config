@@ -228,15 +228,15 @@ bindsym XF86AudioPrev exec playerctl previous
 # Startup Programs
 ##############################################################################
 
-bar {
-	status_command python ~/configs/statusbar/i3pystatus/i3pystatusconfig.py
-	position top
-	workspace_buttons yes
-	colors {
-		background $bg_inactive
-		statusline $bg_active
-	}
-}
+#bar {
+#	status_command python ~/configs/statusbar/i3pystatus/i3pystatusconfig.py
+#	position top
+#	workspace_buttons yes
+#	colors {
+#		background $bg_inactive
+#		statusline $bg_active
+#	}
+#}
 
 #exec xrandr --setprovideroutputsource nouveau Intel
 #exec compton --config ~/.config/.compton.conf -bcCfG --detect-client-opacity --fade-delta=5 --shadow-opacity=0.5 --shadow-offset-x=-5 --shadow-offset-y=-5 &
