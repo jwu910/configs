@@ -211,5 +211,4 @@ source ~/configs/includes/.bashrc-liferay
 # Adding autocomplete for 'we'
 [ -f ~/.we_autocomplete ] && source ~/.we_autocomplete
 
-export MONITOR="DP-1"
-export GITHUB_TOKEN="2afeae8da410e9bf15adcccacd927f9b46d46bbf"
+source ~/.tokens

@@ -252,6 +252,7 @@ exec nitrogen --restore &
 exec redshift -l 34.132268:-117.961578
 
 exec --no-startup-id "sh ~/configs/scripts/set_monitor.sh"
+exec --no-startup-id "sh ~/configs/scripts/polybar.sh"
 
 exec --no-startup-id dev
 exec --no-startup-id comms
