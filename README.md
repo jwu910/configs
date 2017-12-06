@@ -1,17 +1,22 @@
 # Configs
 
-## dotfiles
+## dotfiles/
 Create sym links for dot files.
 
 ```
-ln -s ~/PATH/TO/REPO/dotfiles/[(.)configfile] [(.)configfile]
+ln -s ~/PATH/TO/REPO/dotfiles/file_name file_name
 ```
-### includes
+#### includes/
+ - .bashrc-liferay - Liferay specific functions and aliases.
+ - .gitconfig-alias - Helpful git config aliases.
+ - .gitconfig-personal - Username config for personal repos.
+ - .gitconfig-work - Username config for work repos.
 
-## i3
+
+## i3/
 [Source](https://github.com/Airblader/i3) - Contains configs for i3 window manager with gaps.
 
-## scripts
+## scripts/
 Add scripts folder to path to utilize tools provided within.
 
  - comms - Open Slack, Skype, Discord, and Spotify in headless chrome browsers in worksapce 4 (Works well with i3 layouts)
@@ -24,6 +29,5 @@ Add scripts folder to path to utilize tools provided within.
  - set_monitor - Set monitors for work machine set up.
  - slng - Get hip or die trying.
 
-
-## statusbar
+## statusbar/
 Call polybar with configs from this file.
