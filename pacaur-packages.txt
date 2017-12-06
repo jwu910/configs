@@ -1,0 +1,239 @@
+   0.00 MiB	hunspell-en         	English (US, UK, etc.) hunspell dictionaries
+   0.00 MiB	pulseaudio-alsa     	ALSA Configuration for PulseAudio
+   0.01 MiB	antergos-mirrorlist 	Antergos mirrorlist for use by pacman
+   0.01 MiB	xorg-mkfontdir      	Create an index of X font files in a directory
+   0.01 MiB	xorg-xrefresh       	Refresh all or part of an X screen
+   0.02 MiB	antergos-gnome-setup	Setup configuration for Antergos Gnome
+   0.02 MiB	antergos-midnight-timers	Timers to avoid system slowdown at midnight
+   0.02 MiB	diff-so-fancy       	Good-looking diffs with diff-highlight and more
+   0.02 MiB	libtxc_dxtn         	S3 Texture Compression (S3TC) library for Mesa
+   0.02 MiB	perl-anyevent-i3    	Communicate with the i3 window manager
+   0.03 MiB	expac               	pacman database extraction utility
+   0.03 MiB	wpa_actiond         	Daemon that connects to wpa_supplicant and handles connect and disconnect events
+   0.03 MiB	xf86-video-fbdev    	X.org framebuffer video driver
+   0.03 MiB	xf86-video-vesa     	X.org vesa video driver
+   0.04 MiB	antergos-gnome-defaults-list	default file associations for GNOME environment
+   0.04 MiB	antergos-keyring    	Antergos PGP keyring
+   0.04 MiB	b43-fwcutter        	firmware extractor for the b43 kernel module
+   0.04 MiB	efibootmgr          	Tool to modify UEFI Firmware Boot Manager Variables
+   0.04 MiB	gnome-shell-extension-status-menu-buttons	Adds a hibernate, suspend, & lock button to the status menu.
+   0.04 MiB	i3lock              	An improved screenlocker based upon XCB and PAM
+   0.04 MiB	libdvdcss           	Portable abstraction library for DVD decryption
+   0.04 MiB	nvidia-installer    	Script to setup nvidia drivers in Antergos
+   0.04 MiB	xorg-bdftopcf       	Convert X font from Bitmap Distribution Format to Portable Compiled Format
+   0.04 MiB	xorg-xauth          	X.Org authorization settings program
+   0.04 MiB	xorg-xdriinfo       	Query configuration information of DRI drivers
+   0.04 MiB	xorg-xlsatoms       	List interned atoms defined on server
+   0.04 MiB	xorg-xprop          	Property displayer for X
+   0.04 MiB	xorg-xwininfo       	Command-line utility to print information about windows on an X server
+   0.04 MiB	zd1211-firmware     	Firmware for the in-kernel26 zd1211rw wireless driver
+   0.05 MiB	os-prober           	Utility to detect other OSes on a set of drives
+   0.05 MiB	pkgfile             	a pacman .files metadata explorer
+   0.05 MiB	python-pysmbc       	Python 3 bindings for libsmbclient
+   0.05 MiB	xclip               	Command line interface to the X11 clipboard
+   0.05 MiB	xorg-sessreg        	Register X sessions in system utmp/utmpx databases
+   0.05 MiB	xorg-xbacklight     	RandR-based backlight control application
+   0.05 MiB	xorg-xcursorgen     	Create an X cursor file from PNG images
+   0.05 MiB	xorg-xgamma         	Alter a monitor's gamma correction
+   0.05 MiB	xorg-xhost          	Server access control program for X
+   0.05 MiB	xorg-xkbutils       	XKB utility demos
+   0.05 MiB	xorg-xkill          	Kill a client by its X resource
+   0.05 MiB	xorg-xlsclients     	List client applications running on a display
+   0.05 MiB	xorg-xsetroot       	Classic X utility to set your root window background to a given pattern or color
+   0.05 MiB	xorg-xvinfo         	Prints out the capabilities of any video adaptors associated with the display that are accessible through the X-Video extension
+   0.06 MiB	gvfs-google         	Virtual filesystem implementation for GIO (Google Drive backend)
+   0.06 MiB	xorg-iceauth        	ICE authority file utility
+   0.06 MiB	xorg-setxkbmap      	Set the keyboard using the X Keyboard Extension
+   0.06 MiB	xorg-smproxy        	Allows X applications that do not support X11R6 session management to participate in an X11R6 session
+   0.06 MiB	xorg-xev            	Print contents of X events
+   0.06 MiB	xorg-xkbevd         	XKB event daemon
+   0.06 MiB	xorg-xpr            	Print an X window dump from xwd
+   0.06 MiB	xorg-xrandr         	Primitive command line interface to RandR extension
+   0.06 MiB	xorg-xrdb           	X server resource database utility
+   0.06 MiB	xorg-xwd            	X Window System image dumping utility
+   0.06 MiB	xorg-xwud           	X Window System image undumping utility
+   0.07 MiB	hicolor-icon-theme  	Freedesktop.org Hicolor icon theme
+   0.07 MiB	lib32-libvdpau      	Nvidia VDPAU library
+   0.07 MiB	python2-gnomekeyring	Python bindings for libgnome-keyring
+   0.07 MiB	scrot               	Simple command-line screenshot utility for X
+   0.07 MiB	xorg-mkfontscale    	Create an index of scalable font files for X
+   0.07 MiB	xorg-xcmsdb         	Device Color Characterization utility for X Color Management System
+   0.07 MiB	xorg-xdpyinfo       	Display information utility for X
+   0.07 MiB	xorg-xmodmap        	Utility for modifying keymaps and button mappings
+   0.07 MiB	xorg-xset           	User preference utility for X
+   0.08 MiB	reflector           	A Python 3 module and script to retrieve and filter the latest Pacman mirror list.
+   0.08 MiB	xorg-luit           	Filter that can be run between an arbitrary application and a UTF-8 terminal emulator
+   0.08 MiB	xorg-xinit          	X.Org initialisation program
+   0.09 MiB	i3status            	Generates status bar to use with i3bar, dzen2 or xmobar
+   0.09 MiB	tree                	A directory listing program displaying a depth indented list of files
+   0.09 MiB	xorg-xinput         	Small commandline tool to configure devices
+   0.11 MiB	cower               	A simple AUR agent with a pretentious name
+   0.11 MiB	gvfs-smb            	Virtual filesystem implementation for GIO (SMB/CIFS backend; Windows client)
+   0.12 MiB	xf86-input-synaptics	Synaptics driver for notebook touchpads
+   0.13 MiB	ffmpegthumbnailer   	Lightweight video thumbnailer that can be used by file managers.
+   0.14 MiB	acpid               	A daemon for delivering ACPI power management events with netlink support
+   0.14 MiB	dunst               	Customizable and lightweight notification-daemon
+   0.14 MiB	haveged             	Entropy harvesting daemon using CPU timings
+   0.15 MiB	splix               	CUPS drivers for SPL (Samsung Printer Language) printers
+   0.16 MiB	dosfstools          	DOS filesystem utilities
+   0.16 MiB	gvfs-mtp            	Virtual filesystem implementation for GIO (MTP backend; Android, media player)
+   0.16 MiB	ttf-font-awesome    	Iconic font designed for Bootstrap
+   0.17 MiB	pulseaudio-bluetooth	Bluetooth support for PulseAudio
+   0.18 MiB	cifs-utils          	CIFS filesystem user-space tools
+   0.18 MiB	libmpd              	Signal based wrapper around libmpdclient
+   0.18 MiB	whois               	The whois client by Marco d'Itri
+   0.18 MiB	xdg-user-dirs-gtk   	Creates user dirs and asks to relocalize them
+   0.21 MiB	crda                	Central Regulatory Domain Agent for wireless networks
+   0.22 MiB	xorg-font-util      	X.Org font utilities
+   0.22 MiB	xorg-x11perf        	Simple X server performance benchmarker
+   0.24 MiB	compton             	X compositor that may fix tearing issues
+   0.24 MiB	exfat-utils         	Utilities for exFAT file system
+   0.24 MiB	libvdpau            	Nvidia VDPAU library
+   0.24 MiB	xorg-xkbcomp        	X Keyboard description compiler
+   0.26 MiB	f2fs-tools          	Tools for Flash-Friendly File System (F2FS)
+   0.26 MiB	vsftpd              	Very Secure FTP daemon
+   0.29 MiB	unrar               	The RAR uncompression program
+   0.31 MiB	playerctl           	mpris media player controller and lib for spotify, vlc, audacious, bmp, xmms2, and others.
+   0.31 MiB	unzip               	For extracting and viewing files in .zip archives
+   0.32 MiB	cups-pk-helper      	A helper that makes system-config-printer use PolicyKit
+   0.32 MiB	usb_modeswitch      	Activating switchable USB devices on Linux.
+   0.33 MiB	libmpdclient        	Asynchronous API library for interfacing MPD in the C, C++ & Objective C languages
+   0.33 MiB	wireless_tools      	Tools allowing to manipulate the Wireless Extensions
+   0.36 MiB	dmraid              	Device mapper RAID interface
+   0.36 MiB	gnome-font-viewer   	A font viewer utility for GNOME
+   0.38 MiB	light-locker-settings	Just a simple settings dialog for light-locker
+   0.38 MiB	network-manager-applet	Applet for managing network connections
+   0.38 MiB	nilfs-utils         	A log-structured file system supporting continuous snapshotting (userspace utils)
+   0.40 MiB	nitrogen            	Background browser and setter for X windows
+   0.46 MiB	net-tools           	Configuration tools for Linux networking
+   0.47 MiB	rofi                	A window switcher, application launcher and dmenu replacement
+   0.52 MiB	gnome-sound-recorder	A utility to make simple audio recording from your GNOME desktop
+   0.55 MiB	ipw2200-fw          	Firmware for the Intel PRO/Wireless 2200BG
+   0.56 MiB	ttf-bitstream-vera  	Bitstream Vera fonts.
+   0.57 MiB	gst-plugins-base    	GStreamer Multimedia Framework Base Plugins
+   0.58 MiB	jq                  	Command-line JSON processor
+   0.58 MiB	upower              	Abstraction for enumerating power devices, listening to device events and querying history and statistics
+   0.59 MiB	arandr              	Provide a simple visual front end for XRandR 1.2.
+   0.59 MiB	ipw2100-fw          	Intel Centrino Drivers firmware for IPW2100
+   0.61 MiB	pacaur              	An AUR helper that minimizes user interaction
+   0.62 MiB	networkmanager-pptp 	NetworkManager VPN plugin for PPTP
+   0.64 MiB	xorg-fonts-encodings	X.org font encoding files
+   0.65 MiB	pavucontrol         	PulseAudio Volume Control
+   0.67 MiB	redshift            	Adjusts the color temperature of your screen according to your surroundings.
+   0.70 MiB	mlocate             	Merging locate/updatedb implementation
+   0.72 MiB	qt5ct               	Qt5 Configuration Utility
+   0.80 MiB	bash-completion     	Programmable completion for the bash shell
+   0.80 MiB	ufw                 	Uncomplicated and easy to use CLI tool for managing a netfilter firewall
+   0.81 MiB	yaourt              	A pacman wrapper with extended features and AUR support
+   0.82 MiB	gnome-shell-extension-dash-to-dock	A gnome-shell extension that transforms the dash into an intellihide dock.
+   0.82 MiB	gstreamer-vaapi     	GStreamer Multimedia Framework VAAPI Plugin
+   0.84 MiB	accountsservice     	D-Bus interface for user account query and manipulation
+   0.85 MiB	gnome-screenshot    	Take pictures of your screen
+   0.95 MiB	nfs-utils           	Support programs for Network File Systems
+   0.97 MiB	gst-plugins-ugly    	GStreamer Multimedia Framework Ugly Plugins
+   0.98 MiB	gnome-shell-extensions	Extensions for GNOME shell, including classic mode
+   1.00 MiB	python-gobject      	Python Bindings for GLib/GObject/GIO/GTK+
+   1.00 MiB	terminus-font       	Monospace bitmap font (for X11 and console)
+   1.02 MiB	light-locker        	A simple session locker for LightDM
+   1.10 MiB	gnome-tweak-tool    	Customize advanced GNOME 3 options
+   1.12 MiB	libgnome-keyring    	GNOME keyring client library
+   1.16 MiB	qt5-styleplugins    	Additional style plugins for Qt5
+   1.22 MiB	networkmanager-openvpn	NetworkManager VPN plugin for OpenVPN
+   1.25 MiB	dconf-editor        	dconf Editor
+   1.25 MiB	intel-ucode         	Microcode update files for Intel CPUs
+   1.30 MiB	baobab              	A graphical directory tree analyzer
+   1.32 MiB	grub2-theme-antergos	Antergos default Grub2 theme
+   1.33 MiB	guake               	Drop-down terminal for GNOME
+   1.40 MiB	gnome-bluetooth     	The GNOME Bluetooth Subsystem
+   1.49 MiB	gnome-contacts      	Contacts Manager for GNOME
+   1.53 MiB	gnome-logs          	A log viewer for the systemd journal
+   1.63 MiB	ntfs-3g             	NTFS filesystem driver and utilities
+   1.64 MiB	nvidia-settings     	Tool for configuring the NVIDIA graphics driver
+   1.74 MiB	bluez               	Daemons for the bluetooth protocol stack
+   1.79 MiB	polari              	An IRC Client for GNOME
+   1.88 MiB	lightdm             	A lightweight display manager
+   1.89 MiB	alsa-utils          	An alternative implementation of Linux sound support
+   2.10 MiB	gnome-music         	Music player and management application
+   2.20 MiB	xf86-video-intel    	X.org Intel i810/i830/i915/945G/G965+ video drivers
+   2.35 MiB	gnome-calendar      	Simple and beautiful calendar application designed to perfectly fit the GNOME desktop
+   2.38 MiB	pamac               	A GTK3 frontend for libalpm
+   2.52 MiB	gnome-maps          	A simple GNOME 3 maps application
+   2.69 MiB	apache-ant          	A java-based build tool
+   2.75 MiB	lightdm-webkit2-greeter	A webkit2 greeter for LightDM
+   3.00 MiB	wget                	Network utility to retrieve files from the Web
+   3.10 MiB	gsfonts             	(URW)++ Core Font Set [Level 2]
+   3.15 MiB	vim                 	Vi Improved, a highly configurable, improved version of the vi text editor
+   3.16 MiB	transmission-gtk    	Fast, easy, and free BitTorrent client (GTK+ GUI)
+   3.58 MiB	gnome-system-monitor	View current processes and monitor system state
+   3.63 MiB	xorg-server         	Xorg X server
+   3.73 MiB	cdrtools            	Original cdrtools supporting CD, DVD and BluRay burning
+   3.76 MiB	gufw                	Uncomplicated way to manage your Linux firewall
+   3.80 MiB	gnome-documents     	A document manager application for GNOME
+   3.89 MiB	ttf-liberation      	Red Hats Liberation fonts.
+   4.03 MiB	bluez-utils         	Development and debugging utilities for the bluetooth protocol stack
+   4.15 MiB	gnome-keyring       	Stores passwords and encryption keys
+   4.25 MiB	file-roller         	Create and modify archives
+   4.54 MiB	gnome-themes-standard	Standard Themes for GNOME Applications
+   4.54 MiB	numix-frost-themes  	Official Numix GTK theme - Antergos Edition
+   4.67 MiB	libva-intel-driver  	VA-API implementation for Intel G45 and HD Graphics family
+   4.71 MiB	mesa-vdpau          	Mesa VDPAU drivers
+   4.73 MiB	btrfs-progs         	Btrfs filesystem utilities
+   4.73 MiB	gnome-photos        	Access, organize, and share your photos on GNOME
+   4.73 MiB	openssh             	Free version of the SSH connectivity tools
+   4.89 MiB	gnome-calculator    	GNOME Scientific calculator
+   5.48 MiB	gnome-weather       	Access current weather conditions and forecasts
+   5.75 MiB	pulseaudio          	A featureful, general-purpose sound server
+   5.80 MiB	gnome-disk-utility  	Disk Management Utility for GNOME
+   5.82 MiB	antergos-wallpapers 	Default wallpapers for Antergos Linux
+   5.87 MiB	bind-tools          	The ISC DNS tools
+   6.06 MiB	seahorse            	GNOME application for managing PGP keys.
+   6.22 MiB	python-pip          	The PyPA recommended tool for installing Python packages
+   6.83 MiB	gnome-terminal      	The GNOME Terminal Emulator
+   6.99 MiB	system-config-printer	A CUPS printer configuration tool and status applet
+   7.83 MiB	totem               	Movie player for the GNOME desktop based on GStreamer
+   8.04 MiB	modemmanager        	Mobile broadband modem management service
+   8.07 MiB	numix-icon-theme-square	Square icon expansion theme from the Numix project
+   8.67 MiB	nvidia              	NVIDIA drivers for linux
+   8.97 MiB	bdf-unifont         	GNU Unifont Glyphs
+   9.11 MiB	gst-plugins-good    	GStreamer Multimedia Framework Good Plugins
+   9.60 MiB	nvidia-lts          	NVIDIA drivers for linux-lts
+   9.75 MiB	ttf-dejavu          	Font family based on the Bitstream Vera Fonts with a wider range of characters
+  10.30 MiB	ttf-freefont        	Set of free outline fonts covering the Unicode character set
+  10.49 MiB	eog                 	Eye of Gnome: An image viewing and cataloging program
+  11.28 MiB	networkmanager      	Network connection manager and user applications
+  11.69 MiB	gnome-shell         	The next generation GNOME Shell
+  12.89 MiB	evince              	Document viewer (PDF, Postscript, djvu, tiff, dvi, XPS, SyncTex support with gedit, comics books (cbr,cbz,cb7 and cbt))
+  13.03 MiB	cups                	The CUPS Printing System - daemon package
+  13.34 MiB	gst-plugins-bad     	GStreamer Multimedia Framework Bad Plugins
+  13.52 MiB	brasero             	CD/DVD mastering tool
+  14.63 MiB	gedit               	GNOME Text Editor
+  14.78 MiB	gst-libav           	GStreamer Multimedia Framework ffmpeg Plugin
+  14.97 MiB	nautilus            	Default file manager for GNOME
+  17.93 MiB	gnome-control-center	GNOME's main interface to configure various aspects of the desktop
+  18.60 MiB	gnome-backgrounds   	Background images and data for GNOME
+  19.12 MiB	flashplugin         	Adobe Flash Player NPAPI
+  19.20 MiB	nodejs              	Evented I/O for V8 javascript
+  19.94 MiB	npm                 	A package manager for javascript
+  20.08 MiB	ttf-arphic-uming    	CJK Unicode font Ming style
+  20.60 MiB	pepper-flash        	Adobe Flash Player PPAPI
+  22.09 MiB	python-pyqt5        	A set of Python 3.x bindings for the Qt5 toolkit
+  26.67 MiB	numix-icon-theme    	Base icon theme from the Numix project
+  27.26 MiB	otf-ipafont         	Japanese outline fonts by Information-technology Promotion Agency, Japan (IPA)
+  28.89 MiB	hplip               	Drivers for HP DeskJet, OfficeJet, Photosmart, Business Inkjet and some LaserJet
+  29.59 MiB	xscreensaver        	Screen saver and locker for the X Window System
+  29.99 MiB	grub                	GNU GRand Unified Bootloader (2)
+  31.04 MiB	cmake               	A cross-platform open-source make system
+  34.52 MiB	git                 	the fast distributed version control system
+  40.17 MiB	linux-headers       	Header files and scripts for building modules for Linux kernel
+  41.96 MiB	bzr                 	A decentralized revision control system (bazaar)
+  46.57 MiB	lib32-mesa          	an open-source implementation of the OpenGL specification (32-bit)
+  50.94 MiB	linux-lts-headers   	Header files and scripts for building modules for Linux-lts kernel
+  51.03 MiB	ttf-hanazono        	A free Japanese kanji font, which contains about 78,685 characters (and 2 SPACEs) defined in ISO/IEC 10646 standard / the Unicode standard.
+  52.94 MiB	mesa                	an open-source implementation of the OpenGL specification
+  74.92 MiB	unicode-character-database	Unicode Character Database
+  82.42 MiB	linux-lts           	The Linux-lts kernel and modules
+  99.26 MiB	lib32-nvidia-utils  	NVIDIA drivers utilities (32-bit)
+ 154.34 MiB	atom                	A hackable text editor for the 21st Century
+ 155.51 MiB	firefox             	Standalone web browser from mozilla.org
+ 167.79 MiB	mariadb             	Fast SQL database server, drop-in replacement for MySQL
+ 182.54 MiB	chromium            	A web browser built for speed, simplicity, and security
