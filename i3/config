@@ -228,7 +228,7 @@ bindsym XF86AudioPrev exec playerctl previous
 # Startup Programs
 ##############################################################################
 
-exec compton --config ~/.config/.compton.conf -bcCfG --detect-client-opacity --fade-delta=5 --shadow-opacity=0.5 --shadow-offset-x=-5 --shadow-offset-y=-5 &
+exec compton --config ~/.config/.compton.conf -bcCfG --detect-client-opacity --fade-delta=5 --shadow-opacity=0.5 --shadow-offset-x=-1 --shadow-offset-y=-1 &
 #exec --no-startup-id blueman-applet
 exec --no-startup-id dunst
 exec --no-startup-id nm-applet
