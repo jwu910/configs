@@ -4,4 +4,4 @@ archlinux-java status
 
 echo "==============================="
 echo "Usage:"
-echo "archlinux-java set [choice]"
+echo "sudo archlinux-java set [choice]"
