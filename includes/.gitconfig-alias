@@ -17,6 +17,9 @@
 	# Pull changes from upstream. Takes two arguments 'remote' and 'branch'
 	pc = "!f() { git pull --rebase $1 $2; }; f"
 
+
+  syncloop = "!f() { git pc upstream ee-6.2.x && git pbo -f; }; f"
+
 	# Git Gud
 	gud = !bash -c "gitGud"
 

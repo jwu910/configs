@@ -146,6 +146,7 @@ function jira {
 }
 
 alias loopdir="cd $LIFERAY_DIR/ee-6.2.x/liferay-plugins-ee/portlets/loop-portlet/"
+alias looptheme="cd $LIFERAY_DIR/ee-6.2.x/liferay-plugins-ee/themes/loop-theme/"
 alias 62dir="cd $LIFERAY_DIR/ee-6.2.x/liferay-portal-ee/"
 alias 70dir="cd $LIFERAY_DIR/7.0.x/liferay-portal-ee/"
 alias 70pdir="cd $LIFERAY_DIR/7.0.x-private/liferay-portal-ee/"
