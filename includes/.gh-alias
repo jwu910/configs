@@ -10,16 +10,13 @@
 #push to origin
 #send pr
 
+function sync_latest() {
+  git fetch upstream "$2" -pv &&
+  git rebase -p "upstream/$2"
+}
+
 function sendPR() {
   local branch_name=$(git rev-parse --abbrev-ref HEAD | grep -Eo '([A-Z]{4,}-)([0-9]+)' -m 1)
 
-  git fetch upstream "$2" -pv &&
-  git rebase -p "upstream/$2" &&
-  didYou &&
-
-  echo Done.
-  #gh pr -s "$1" -b "$2" -D "This is a test"
-
-
-
+  gh pr -s "$1" -b "$2" -D "Hi @$1, these are changes for [$branch_name](https://issues.liferay.com/browse/$branch_name). Thanks!"
 }
