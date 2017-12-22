@@ -6,31 +6,31 @@ source ~/.envs
 # Check for machine descriptor environment variable
 if [ -z "$MACHINE" ]
 then
-  echo "This start-up script requires the environment variable \"MACHINE\" to be set before this will run. \nAdd this environment variable to your \".envs\" in your home directory."
+  echo -e "This start-up script requires the environment variable \"MACHINE\" to be set before this will run. \nAdd this environment variable to your \".envs\" in your home directory."
   kill -INT $$
 fi
 
 # Check for network environment variable
-if [ -z "$WIRELESSNETWORK" ]
+if [[ -z "$WIRELESSNETWORK" && -z "$WIREDNETWORK" ]]
 then
-  if [ -z "$WIREDNETWORK" ]
-  then
-    echo "WIREDNETWORK env variable not set. Please set a network ID as one of your network variables in your \"~/.envs\" file."
-    kill -INT $$
-  fi
+  # if [ -z "$WIREDNETWORK" ]
+  # then
+  echo -e "This start-up script requires the environment variable \"WIRELESSNETWORK\" or \"WIREDNETWORK\" to be set before this will run. \nAdd this environment variable to your \".envs\" in your home directory."
+  kill -INT $$
+  # fi
 fi
 
 # Check for monitor name environment variable
 if [ -z "$MONITORNAME" ]
 then
-  echo "This start-up script requires the environment variable \"MONITORNAME\" to be set before this will run. \nAdd this environment variable to your \".envs\" in your home directory."
+  echo -e "This start-up script requires the environment variable \"MONITORNAME\" to be set before this will run. \nAdd this environment variable to your \".envs\" in your home directory."
   kill -INT $$
 fi
 
 # Check for github auth token
 if [ -z "$TOKEN_GITHUB" ]
 then
-  echo "This start-up script requires the environment variable \"TOKEN_GITHUB\" to be set before this will run. \nAdd this environment variable to your \".envs\" in your home directory."
+  echo -e "This start-up script requires the environment variable \"TOKEN_GITHUB\" to be set before this will run. \nAdd this environment variable to your \".envs\" in your home directory."
   kill -INT $$
 fi
 
