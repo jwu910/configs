@@ -1,0 +1,15 @@
+# Set custom environment variables for configs.
+
+# Your machine name.
+export MACHINE=""
+
+# Network card Ids. Use '$ ifconfig' to check network settings.
+export WIRELESSNETWORK=""
+export WIREDNETWORK=""
+
+# Monitor name. Use '$ arandr' to check active monitors.
+export MONITORNAME=""
+
+# Token used for polybar module github
+export TOKEN_GITHUB=""
+
