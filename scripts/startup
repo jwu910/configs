@@ -1,0 +1,67 @@
+#!/bin/env bash
+
+# Reload custom environment variables.
+source ~/.envs
+
+# Check for machine descriptor environment variable
+if [ -z "$MACHINE" ]
+then
+  echo "This start-up script requires the environment variable \"MACHINE\" to be set before this will run. \nAdd this environment variable to your \".envs\" in your home directory."
+  kill -INT $$
+fi
+
+# Check for network environment variable
+if [ -z "$WIRELESSNETWORK" ]
+then
+  if [ -z "$WIREDNETWORK" ]
+  then
+    echo "WIREDNETWORK env variable not set. Please set a network ID as one of your network variables in your \"~/.envs\" file."
+    kill -INT $$
+  fi
+fi
+
+# Check for monitor name environment variable
+if [ -z "$MONITORNAME" ]
+then
+  echo "This start-up script requires the environment variable \"MONITORNAME\" to be set before this will run. \nAdd this environment variable to your \".envs\" in your home directory."
+  kill -INT $$
+fi
+
+# Check for github auth token
+if [ -z "$TOKEN_GITHUB" ]
+then
+  echo "This start-up script requires the environment variable \"TOKEN_GITHUB\" to be set before this will run. \nAdd this environment variable to your \".envs\" in your home directory."
+  kill -INT $$
+fi
+
+
+
+
+
+
+
+if [[ "$MACHINE" -eq "PERSONAL" ]]
+then
+  echo "Establishing personal machine settings."
+  export BAR_WLAN="$WIRELESSNETWORK"
+  export GITHUB_TOKEN="$TOKEN_GITHUB"
+
+
+
+fi
+
+# If work machine
+  # Set monitor
+  # Start polybar on work monitor
+  # set environment variables for polybar network
+  # dev & comms
+
+# If personal
+  # Set polybar to main screen
+  # set env varible for polybar wifi network
+
+
+
+
+
+
