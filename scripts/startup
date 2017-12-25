@@ -19,23 +19,23 @@ quit_script() {
 }
 
 # Check for machine descriptor environment variable
-if [[ -z "$MACHINE" ]]
+if [[ -z "$MACHINE_NAME" ]]
 then
-  echo -e "$ERROR This start-up script requires the environment variable $YELLOW\"MACHINE\"$ENDC to be set before this will run. \nAdd this environment variable to your $YELLOW\".envs\"$ENDC in your home directory."
+  echo -e "$ERROR This start-up script requires the environment variable $YELLOW\"MACHINE_NAME\"$ENDC to be set before this will run. \nAdd this environment variable to your $YELLOW\".envs\"$ENDC in your home directory."
   quit_script
 fi
 
 # Check for network environment variable
-if [[ -z "$WIRELESSNETWORK" && -z "$WIREDNETWORK" ]]
+if [[ -z "$WIRELESS_NETWORK" && -z "$WIRED_NETWORK" ]]
 then
-  echo -e "$ERROR This start-up script requires the environment variable $YELLOW\"WIRELESSNETWORK\"$ENDC or $YELLOW\"WIREDNETWORK\"$ENDC to be set before this will run. \nAdd this environment variable to your $YELLOW\".envs\"$ENDC in your home directory."
+  echo -e "$ERROR This start-up script requires the environment variable $YELLOW\"WIRELESS_NETWORK\"$ENDC or $YELLOW\"WIRED_NETWORK\"$ENDC to be set before this will run. \nAdd this environment variable to your $YELLOW\".envs\"$ENDC in your home directory."
   quit_script
 fi
 
 # Check for monitor name environment variable
-if [[ -z "$MONITORNAME" ]]
+if [[ -z "$MONITOR_NAME" ]]
 then
-  echo -e "$ERROR This start-up script requires the environment variable $YELLOW\"MONITORNAME\"$ENDC to be set before this will run. \nAdd this environment variable to your $YELLOW\".envs\"$ENDC in your home directory."
+  echo -e "$ERROR This start-up script requires the environment variable $YELLOW\"MONITOR_NAME\"$ENDC to be set before this will run. \nAdd this environment variable to your $YELLOW\".envs\"$ENDC in your home directory."
   quit_script
 fi
 
@@ -47,26 +47,31 @@ then
 fi
 
 # Determine what scripts to run based on the machine name provided.
-case "$MACHINE" in
-  "PERSONAL"*)
-    echo -e "Establishing personal machine settings."
-    export BAR_WLAN="$WIRELESSNETWORK"
-    export GITHUB_TOKEN="$TOKEN_GITHUB"
+start() {
+  export BAR_WLAN="$WIRELESS_NETWORK"
+  export GITHUB_TOKEN="$TOKEN_GITHUB"
+  export MONITOR="$MONITOR_NAME"
 
-  ;;
-  "WORK"*)
-    echo -e "Establishing work machine settings."
+  case "$MACHINE_NAME" in
+    "PERSONAL"*)
+      echo -e "Establishing personal machine_NAME settings."
 
-  ;;
-  *)
-    echo -e "Machine not recognized. Ensure your enviornment variables are set correctly"
-  ;;
-esac
+    ;;
+    "WORK"*)
+      echo -e "Establishing work machine_NAME settings."
+
+    ;;
+    *)
+      echo -e "Machine_NAME not recognized. Ensure your enviornment variables are set correctly"
+    ;;
+  esac
+
+}
 
 
 
 
-# If work machine
+# If work machine_NAME
   # Set monitor
   # Start polybar on work monitor
   # set environment variables for polybar network
