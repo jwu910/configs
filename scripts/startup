@@ -1,5 +1,9 @@
 #!/bin/env bash
 
+# Reload custom environment variables
+source ~/.envs
+
+# Colors used for console logging
 ENDC="\033[0m"
 RED="\033[91m"
 YELLOW="\033[33m"
@@ -8,11 +12,7 @@ OKGREEN="\033[92m"
 
 ERROR="$RED[ERROR]$ENDC"
 
-
-# Reload custom environment variables.
-source ~/.envs
-
-# Exit
+# Exit point
 quit_script() {
   echo -e "$YELLOW\nExiting."
   kill -INT $$
