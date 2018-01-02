@@ -56,10 +56,14 @@ start() {
     "PERSONAL"*)
       echo -e "Establishing personal machine_NAME settings."
 
+      sh "./dev"
     ;;
     "WORK"*)
       echo -e "Establishing work machine_NAME settings."
 
+      sh "./set_monitor.sh" &&
+      sh "./dev" &&
+      sh "./comms"
     ;;
     *)
       echo -e "Machine_NAME not recognized. Ensure your enviornment variables are set correctly"
