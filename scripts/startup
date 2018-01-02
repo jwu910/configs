@@ -54,16 +54,15 @@ start() {
 
   case "$MACHINE_NAME" in
     "PERSONAL"*)
-      echo -e "Establishing personal machine_NAME settings."
+      echo -e "Establishing personal machine settings."
 
-      sh "./dev"
+      dev
     ;;
     "WORK"*)
-      echo -e "Establishing work machine_NAME settings."
+      echo -e "Establishing work machine settings."
 
-      sh "./set_monitor.sh" &&
-      sh "./dev" &&
-      sh "./comms"
+      dev &&
+      comms
     ;;
     *)
       echo -e "Machine_NAME not recognized. Ensure your enviornment variables are set correctly"
@@ -72,21 +71,4 @@ start() {
 
 }
 
-
-
-
-# If work machine_NAME
-  # Set monitor
-  # Start polybar on work monitor
-  # set environment variables for polybar network
-  # dev & comms
-
-# If personal
-  # Set polybar to main screen
-  # set env varible for polybar wifi network
-
-
-
-
-
-
+start
