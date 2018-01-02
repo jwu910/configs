@@ -11,6 +11,7 @@ if [ -z "$TEXT_EDITOR" ]; then
   echo "| This can be set by adding the following lines to your terminal rc file:                |"
   echo "|     export TEXT_EDITOR=\"subl\"                                                          |"
   echo "=========================================================================================="
+  exit 1
 fi
 ### End check environment variable dependencies
 
@@ -35,7 +36,7 @@ openFiles() {
 
 filesNotFound() {
   echo "[error] $TICKET was not found in branch log. openCommitsIn take's one optional argument [TICKET-NUMBER] with the expectation"
-  echo "[error] that your branch commit message naming convention follows the standard of 'JIRA-TICKET - Commit message'" 
+  echo "[error] that your branch commit message naming convention follows the standard of 'JIRA-TICKET - Commit message'"
   echo "[error] - Is your ticket format '<XXXXX-0000>' e.g.: openCommitsIn LOOP-1234?"
   echo "[error] - Are you on the correct branch?"
   exit 1
