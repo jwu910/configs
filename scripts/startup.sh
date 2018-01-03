@@ -52,6 +52,8 @@ start() {
   export GITHUB_TOKEN="$TOKEN_GITHUB"
   export MONITOR="$MONITOR_NAME"
 
+  source ~/configs/scripts/polybar/polybar.sh
+
   case "$MACHINE_NAME" in
     "PERSONAL"*)
       echo -e "Establishing personal machine settings."

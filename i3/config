@@ -123,13 +123,13 @@ bindsym $mod+minus scratchpad show
 
 # Name the workspaces
 set $tag1 "1:   "
-set $tag2 "2:   "
-set $tag3 "3:   "
+set $tag2 "2:   "
+set $tag3 "3:   "
 set $tag4 "4:   "
 set $tag5 "5:   "
-set $tag6 "6:   "
+set $tag6 "6:   "
 set $tag7 "7:   "
-set $tag8 "8:   "
+set $tag8 "8:   "
 
 # switch to workspace
 bindsym $mod+1 workspace $tag1
@@ -228,6 +228,7 @@ bindsym XF86AudioPrev exec playerctl previous
 # Startup Programs
 ##############################################################################
 
+exec --no-startup-id "sh ~/configs/scripts/startup.sh"
 exec compton --config ~/.config/.compton.conf -bcCfG --detect-client-opacity --fade-delta=5 --shadow-opacity=0.5 --shadow-offset-x=-1 --shadow-offset-y=-1 &
 #exec --no-startup-id blueman-applet
 exec --no-startup-id dunst
@@ -240,7 +241,3 @@ exec nitrogen --restore &
 exec redshift -l 34.132268:-117.961578
 
 exec --no-startup-id "sh ~/configs/scripts/set_monitor.sh"
-exec --no-startup-id "sh ~/configs/scripts/polybar/polybar.sh"
-
-exec --no-startup-id dev
-exec --no-startup-id comms
