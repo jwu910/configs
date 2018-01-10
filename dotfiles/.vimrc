@@ -107,7 +107,8 @@ set splitbelow
 set splitright
 set sts=2
 set ttymouse=sgr
-set noeol
+set cursorline
+set nofixendofline
 
 " Autorun configs
 autocmd BufWritePre * %s/\s\+$//e
