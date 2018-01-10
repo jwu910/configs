@@ -22,15 +22,19 @@ Plugin 'mxw/vim-jsx'
 " Editor Config
 Plugin 'editorconfig/editorconfig-vim'
 
+" Highlight Whitespace
+Plugin 'ntpeters/vim-better-whitespace'
+
 " CtrlP search
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'henrik/vim-indexed-search'
 
 " Tree view file browser
 Plugin 'scrooloose/nerdtree'
 
-Plugin 'henrik/vim-indexed-search'
+Plugin 'vim-airline/vim-airline'
 
-
+Plugin 'syntastic'
 " Themes
 Plugin 'flazz/vim-colorschemes'
 
@@ -52,10 +56,7 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 " ===  Themes  ===
-colorscheme spacegray
-
-" Italicize comments
-let g:spacegray_italicize_comments = 1
+colorscheme zenburn
 
 " Nerdtree settings
 map <C-\> :NERDTreeToggle<CR>
@@ -64,13 +65,25 @@ let NERDTreeShowHidden=1
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
-
 " Ctrl P Settings
 let g:ctrlp_working_path_mode = 'a'
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_custom_ignore = {
   \ 'dir': '\v[\/]\.?(git|hg|svn|node_modules|classes|build|dist)$',
   \ }
+
+" JSX Syntax Highlighting
+let g:jsx_ext_required = 0
+
+" Syntastic Settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 
 nnoremap j jzz
@@ -79,6 +92,8 @@ nnoremap k kzz
 syntax on
 
 set background=dark
+set shiftwidth=4
+set tabstop=4
 set expandtab
 set hlsearch
 set mouse=a
@@ -87,8 +102,8 @@ set relativenumber
 set splitbelow
 set splitright
 set sts=2
-set tabstop=2
 set ttymouse=sgr
+set noeol
 
 " Autorun configs
 autocmd BufWritePre * %s/\s\+$//e
