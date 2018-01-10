@@ -34,6 +34,10 @@ Plugin 'scrooloose/nerdtree'
 
 Plugin 'vim-airline/vim-airline'
 
+" Git in vim
+Plugin 'jreybert/vimagit'
+
+" Syntastic -- not sure if installed correctly.
 Plugin 'syntastic'
 " Themes
 Plugin 'flazz/vim-colorschemes'
