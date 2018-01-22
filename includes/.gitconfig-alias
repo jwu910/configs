@@ -23,6 +23,9 @@
 	# Git Gud
 	gud = !bash -c "gitGud"
 
+    # Fetch and prune origin
+    fpv = "!f() { git fetch $1 -pv; }; f"
+
 	# Git Tools
 	## Committing
 	##--------
