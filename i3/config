@@ -228,7 +228,6 @@ bindsym XF86AudioPrev exec playerctl previous
 # Startup Programs
 ##############################################################################
 
-exec --no-startup-id "sh ~/configs/scripts/startup.sh"
 exec compton --config ~/.config/.compton.conf -bcCfG --detect-client-opacity --fade-delta=5 --shadow-opacity=0.5 --shadow-offset-x=-1 --shadow-offset-y=-1 &
 #exec --no-startup-id blueman-applet
 exec --no-startup-id dunst
@@ -240,4 +239,6 @@ exec guake
 exec nitrogen --restore &
 exec redshift -l 34.132268:-117.961578
 
-exec --no-startup-id "sh ~/configs/scripts/set_monitor.sh"
+#exec --no-startup-id "sh ~/configs/scripts/set_monitor.sh"
+exec --no-startup-id "python ~/configs/scripts/monitor.py"
+exec --no-startup-id "sh ~/configs/scripts/startup.sh"

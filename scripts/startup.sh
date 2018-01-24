@@ -58,11 +58,13 @@ start() {
     "PERSONAL"*)
       echo -e "Establishing personal machine settings."
 
+      # Call startup scripts
       dev
     ;;
     "WORK"*)
       echo -e "Establishing work machine settings."
 
+      # Call startup scripts
       dev &&
       comms
     ;;
