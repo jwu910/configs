@@ -52,7 +52,7 @@ start() {
   export GITHUB_TOKEN="$TOKEN_GITHUB"
   export MONITOR="$MONITOR_NAME"
 
-  source ~/configs/scripts/polybar/polybar.sh
+  source ~/configs/scripts/polybar/pbar
 
   case "$MACHINE_NAME" in
     "PERSONAL"*)
@@ -60,12 +60,13 @@ start() {
 
       # Call startup scripts
       dev
+      spotify &
     ;;
     "WORK"*)
       echo -e "Establishing work machine settings."
 
       # Call startup scripts
-      dev &&
+      dev
       comms
     ;;
     *)
