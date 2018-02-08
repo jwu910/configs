@@ -212,3 +212,4 @@ source ~/configs/includes/.bashrc-liferay
 [ -f ~/.we_autocomplete ] && source ~/.we_autocomplete
 
 source ~/.tokens
+source /etc/profile.d/autojump.sh
