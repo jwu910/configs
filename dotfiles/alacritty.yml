@@ -152,8 +152,8 @@ colors:
 # To completely disable the visual bell, set its duration to 0.
 #
 visual_bell:
-  animation: EaseOut
-  duration: 200
+  animation: EaseOutSine
+  duration: 100
 
 # Background opacity
 background_opacity: 0.8
@@ -200,10 +200,10 @@ live_config_reload: true
 #
 # You can set shell.program to the path of your favorite shell, e.g. /bin/fish.
 # Entries in shell.args are passed unmodified as arguments to the shell.
-# shell:
-#   program: /bin/bash
-#   args:
-#     - --login
+shell:
+  program: /bin/bash
+  #  args:
+  #    - --login
 
 
 # Key bindings
