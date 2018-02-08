@@ -79,11 +79,11 @@
 	##--------
 
 	# Merge
-	mg = merge
+	#mg = merge
 	# Merge abort
-	mga = merge --abort
+	#mga = merge --abort
 	# Merge master into current branch
-	mm = !git merge $(git getm)
+	#mm = !git merge $(git getm)
 
 	## Rebasing
 	##--------
@@ -99,9 +99,9 @@
 	# Rebase interactively
 	rbi = rebase -i
 	# Rebase on top of master
-	rbm = !git rebase $(git getm)
+	#rbm = !git rebase $(git getm)
 	# Rebase on top of master interactively
-	rbim = rebase -i $(git getm)
+	#rbim = rebase -i $(git getm)
 
 	## Resetting
 	##--------
