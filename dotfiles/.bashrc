@@ -211,5 +211,8 @@ source ~/configs/includes/.bashrc-liferay
 # Adding autocomplete for 'we'
 [ -f ~/.we_autocomplete ] && source ~/.we_autocomplete
 
+# Pacaur backup installed packages
+echo "$(pacaur -Qqe)" > ~/configs/backup/backpac.txt
+
 source ~/.tokens
 source /etc/profile.d/autojump.sh
