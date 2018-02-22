@@ -214,5 +214,8 @@ source ~/configs/includes/.bashrc-liferay
 # Pacaur backup installed packages
 echo "$(pacaur -Qqe)" > ~/configs/backup/backpac.txt
 
+# Local Tree 
+alias tr3="tree -d -L 3 -I node_modules"
+
 source ~/.tokens
 source /etc/profile.d/autojump.sh
