@@ -196,6 +196,7 @@ ntfs-3g
 numix-frost-themes
 numix-icon-theme
 numix-icon-theme-square
+nvm
 openssh
 orca
 os-prober

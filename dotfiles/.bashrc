@@ -219,3 +219,4 @@ alias tr3="tree -d -L 3 -I node_modules"
 
 source ~/.tokens
 source /etc/profile.d/autojump.sh
+source /usr/share/nvm/init-nvm.sh
