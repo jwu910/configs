@@ -3,7 +3,7 @@
 ## Liferay specific bashrc customizations ##
 ############################################
 
-export ANT_OPTS="-Xms2048m -Xmx4096m -XX:MaxPermSize=512m"
+export ANT_OPTS="-Xms2048m -Xmx4096m -XX:MaxPermSize=1024m -Dorg.gradle.daemon=false"
 
 LIFERAY_DIR=`find ~ -maxdepth 3 -type d -name 'liferay' -print -quit`
 
@@ -105,7 +105,6 @@ function dp {
   echo "Patch files removed."
 }
 
-# Aliases to start tomcat servers for portal
 # Jack-cli formatted to use lse and lsc git aliases. Takes 2 arguments: search-string, [branch-name]
 function jlse {
   if [ -n "$2" ] && [ -n "$1" ]; then
@@ -215,7 +214,7 @@ alias acd="ant clean deploy"
 
 function sfm {
   if [ "$1" ]; then
-    git diff --stat --relative --name-only "$1".. | grep -E '.(tag|jsp.?|vm|ftl|js|(s)?css)$' | xargs check_sf;
+    git diff --stat --relative --name-only "$1".. | grep -E '.(js|(s)?css)$' | xargs check_sf;
   else
     echo -e "$fg_bold[red]Please choose a branch to compare changes to.$reset_color EG: sfm ee-6.2.x"
   fi
