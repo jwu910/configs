@@ -168,7 +168,7 @@ function lsl {
 }
 
 function lsl2 {
-  local src_dir="$LIFERAY_DIR/7.0.x-private/osb-loop/osb-loop-web/src/main/resources/js/dist"
+  local src_dir="$LIFERAY_DIR/7.0.x-private/osb-loop/osb-loop-web/src/main/resources/META-INF/resources/js/dist"
   local dst_dir="$LIFERAY_DIR/7.0.x-private/bundles/tomcat-8.0.32/webapps/loop-portlet/js/dist"
 
   for file in "$src_dir"/*; do
@@ -204,6 +204,8 @@ function deployLoop {
 function fixSql {
   echo "SET SESSION sql_mode = 'STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';"
   echo "SET GLOBAL sql_mode = 'STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';"
+  echo "ALTER TABLE loop_dxp.Repository MODIFY name VARCHAR(200);"
+
 }
 
 alias setMonitor="sh ~/configs/scripts/work-extended-primary.sh"
