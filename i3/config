@@ -59,7 +59,7 @@ set $right l
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec gnome-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -228,7 +228,7 @@ bindsym XF86AudioPrev exec playerctl previous
 # Startup Programs
 ##############################################################################
 
-exec --no-startup-id exec compton --config ~/.config/.compton.conf -bcCfG --detect-client-opacity --fade-delta=5 --shadow-opacity=0.5 --shadow-offset-x=-1 --shadow-offset-y=-1 &
+exec --no-startup-id exec compton --config ~/.config/compton.conf -bcCfG --detect-client-opacity --fade-delta=5 --shadow-opacity=0.5 --shadow-offset-x=-1 --shadow-offset-y=-1 &
 exec --no-startup-id exec dunst -config ~/.config/dunst/dunstrc &
 exec --no-startup-id exec nm-applet
 
