@@ -168,7 +168,7 @@ function ghub {
 		uri=${uri##*://}
 	local urlPath=${uri#*[/:]*}
 	local openUrl="https://github.com/$urlPath"
-	xdg-open $openUrl &
+	"$BROWSER" $openUrl &
 }
 
 export NVM_DIR="$HOME/.nvm"
@@ -216,6 +216,9 @@ echo "$(pacaur -Qqe)" > ~/configs/backup/backpac.txt
 
 # Local Tree 
 alias tr3="tree -d -L 3 -I node_modules"
+
+# SSH Key login
+eval $(keychain --eval --quiet ~/.ssh/id_rsa)
 
 source ~/.tokens
 source /etc/profile.d/autojump.sh
