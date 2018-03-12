@@ -223,6 +223,7 @@ if [ "$MACHINE_NAME" = "PERSONAL" ]; then
 ~/.ssh/id_rsa)
 fi
 
+source ~/.envs
 source ~/.tokens
 source /etc/profile.d/autojump.sh
 source /usr/share/nvm/init-nvm.sh
