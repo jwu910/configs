@@ -218,7 +218,10 @@ echo "$(pacaur -Qqe)" > ~/configs/backup/backpac.txt
 alias tr3="tree -d -L 3 -I node_modules"
 
 # SSH Key login
-eval $(keychain --eval --quiet ~/.ssh/id_rsa)
+if [ "$MACHINE_NAME" = "PERSONAL" ]; then
+	eval $(keychain --eval --quiet 
+~/.ssh/id_rsa)
+fi
 
 source ~/.tokens
 source /etc/profile.d/autojump.sh
