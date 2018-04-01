@@ -21,3 +21,8 @@ unset color_prompt force_color_prompt
 alias startPhotobooth='cd ~/programming/photo-booth-automation && python watch.py'
 
 #export PS1="[\w]$ "
+
+# Start Autojump
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+
+export PATH="/Users/allado-wu/mongodb/bin:$PATH"
