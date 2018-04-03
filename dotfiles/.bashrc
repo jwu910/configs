@@ -199,7 +199,7 @@ function gitGud {
 export -f gitGud
 
 # Personal scripts path
-PATH=$PATH:/home/joshua/configs/scripts
+PATH="$PATH:/home/joshua/configs/scripts"
 export PATH
 
 export TEXT_EDITOR="subl"
@@ -226,3 +226,6 @@ fi
 source ~/.tokens
 source /etc/profile.d/autojump.sh
 source /usr/share/nvm/init-nvm.sh
+
+PATH="$PATH:$HOME/configs/scripts/nscripts-links"
+export PATH
