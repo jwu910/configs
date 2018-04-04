@@ -214,13 +214,12 @@ source ~/configs/includes/.bashrc-liferay
 # Pacaur backup installed packages
 echo "$(pacaur -Qqe)" > ~/configs/backup/backpac.txt
 
-# Local Tree 
+# Local Tree
 alias tr3="tree -d -L 3 -I node_modules"
 
 # SSH Key login
 if [ "$MACHINE_NAME" = "PERSONAL" ]; then
-	eval $(keychain --eval --quiet 
-~/.ssh/id_rsa)
+	eval $(keychain --eval --quiet ~/.ssh/id_rsa)
 fi
 
 source ~/.envs
