@@ -1,27 +1,31 @@
 #!/bin/bash
 
-if [[ -z "$TEXT_EDITOR" ]]; then
-	echo "Envrionment variable TEXT_EDITOR is not set. Please add a perferred editor to your environment variable."
+if [[ -z "$EDITOR" ]]; then
+	echo "Envrionment variable EDITOR is not set. Please add a perferred editor to your environment variable."
 
 	exit 1
-else
-	EDITOR="$TEXT_EDITOR"
 fi
 
+if [ ! $(git rev-parse --is-inside-work-tree) ]; then
+	echo "Are you in the right place?"
+
+	exit 1
+fi
+
+CHANGES=$(git status --porcelain)
 ROOT_DIR=$(git rev-parse --show-toplevel)
 SEARCH=""
-CHANGES=$(git status --porcelain)
 
 if [[ ! -z "$1" ]] ; then
 	SEARCH="$1"
 fi
 
+FILE_COUNT=$(git status --porcelain | grep "$SEARCH" | awk '{print $2}' | wc -l)
+
 openFiles() {
 	cd "$ROOT_DIR" &&
 	git status --porcelain | grep "$SEARCH" | awk '{print $2}' | xargs "$EDITOR"
 }
-
-FILE_COUNT=$(git status --porcelain | grep "$SEARCH" | awk '{print $2}' | wc -l)
 
 if [[ "$FILE_COUNT" -eq 0 ]] ; then
 	echo "No files found."
