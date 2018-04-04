@@ -102,7 +102,7 @@ printHelpAndExit() {
 		    -s <script address> <script name> : Create a new script from an existing local or remote script
 
 		Examples:
-		    nscript mynewwcript
+		    nscript mynewscript
 		    nscript -o mynewscript
 		    nscript -fd mynewscript
 		    nscript -s ~/path/to/local/script/mylocalcript.sh mynewscript
@@ -158,7 +158,7 @@ elif [ -n "${OPT_DELETE}" ] ; then
 
 ## Prints a list of managed script names
 elif [ "${OPT_LIST}" -gt 0 ] ; then
-	find /usr/local/bin -lname "${NSCRIPT_SCRIPT_DIR}/*" | sed "s|${NSCRIPT_EXECUTABLE_DIR}/||g" && exit 0
+	find "${NSCRIPT_EXECUTABLE_DIR}" -lname "${NSCRIPT_SCRIPT_DIR}/*" | sed "s|${NSCRIPT_EXECUTABLE_DIR}/||g" && exit 0
 
 ## Opens the named script
 elif [ -n "${OPT_OPEN}" ] ; then
