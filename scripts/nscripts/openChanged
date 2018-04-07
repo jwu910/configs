@@ -1,9 +1,13 @@
 #!/bin/bash
 
-if [[ -z "$EDITOR" ]]; then
+if [[ -z "$EDITOR" ]] ; then
 	echo "Envrionment variable EDITOR is not set. Please add a perferred editor to your environment variable."
 
 	exit 1
+fi
+
+if [[ ! -z "$TEXT_EDITOR" ]]; then
+    EDITOR="$TEXT_EDITOR"
 fi
 
 if [ ! $(git rev-parse --is-inside-work-tree) ]; then

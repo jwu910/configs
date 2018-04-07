@@ -52,7 +52,7 @@ start() {
   export GITHUB_TOKEN="$TOKEN_GITHUB"
   export MONITOR="$MONITOR_NAME"
 
-  source ~/configs/scripts/polybar/pbar
+  source ~/configs/scripts/nscripts/pbar
 
   case "$MACHINE_NAME" in
     "PERSONAL"*)
