@@ -160,6 +160,7 @@ pulseaudio-bluetooth
 python-gobject
 python-pip
 python-pyqt5
+python-pywal
 python2-gnomekeyring
 python2-speechd
 redshift
