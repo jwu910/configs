@@ -1,0 +1,11 @@
+#!/bin/bash
+
+echo "Populating Loop user..."
+curl \
+	http://localhost:8080/web/guest/home/-/loop/people/add.json \
+	-u test@liferay.com:test \
+	-d emailAddress="loopuser$1@liferay.com" \
+	-d firstName="Loop$1" \
+	-d lastName="User$1" \
+	-d password="test" \
+	-d roleNames="Loop+Admin,Loop+Global+Announcer"
