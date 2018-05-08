@@ -198,6 +198,31 @@ function gitGud {
 }
 export -f gitGud
 
+# Easy extract
+extract () {
+  if [ -f $1 ] ; then
+      case $1 in
+          *.tar.bz2)   tar xvjf $1    ;;
+          *.tar.gz)    tar xvzf $1    ;;
+          *.bz2)       bunzip2 $1     ;;
+          *.rar)       rar x $1       ;;
+          *.gz)        gunzip $1      ;;
+          *.tar)       tar xvf $1     ;;
+          *.tbz2)      tar xvjf $1    ;;
+          *.tgz)       tar xvzf $1    ;;
+          *.zip)       unzip $1       ;;
+          *.Z)         uncompress $1  ;;
+          *.7z)        7z x $1        ;;
+          *)           echo "don't know how to extract '$1'..." ;;
+      esac
+  else
+      echo "'$1' is not a valid file!"
+  fi
+}
+
+# Cd up N directories
+function cdn(){ for i in `seq $1`; do cd ..; done;}
+
 # Personal scripts path
 PATH="$PATH:/home/joshua/configs/scripts"
 export PATH
@@ -229,3 +254,5 @@ source /usr/share/nvm/init-nvm.sh
 
 PATH="$PATH:$HOME/configs/scripts/nscripts-links"
 export PATH
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
