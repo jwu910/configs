@@ -68,6 +68,7 @@ findutils
 firefox
 flashplugin
 flex
+franz
 fzf
 gawk
 gcc
@@ -168,7 +169,6 @@ m4
 make
 man-db
 man-pages
-mariadb
 mdadm
 mesa
 mesa-vdpau
