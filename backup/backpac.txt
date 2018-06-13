@@ -76,6 +76,7 @@ gcc-libs
 gedit
 gettext
 git
+gitlab
 glibc
 gnome-backgrounds
 gnome-bluetooth
@@ -185,6 +186,7 @@ networkmanager
 networkmanager-openconnect
 networkmanager-openvpn
 networkmanager-pptp
+networkmanager-vpnc
 nfs-utils
 nginx
 nilfs-utils
@@ -217,7 +219,7 @@ peek-git
 pepper-flash
 perl
 perl-anyevent-i3
-pkg-config
+pkgconf
 pkgfile
 playerctl
 polari
@@ -259,6 +261,7 @@ systemd-sysvcompat
 tar
 terminus-font
 texinfo
+tidy
 totem
 transmission-gtk
 tree
