@@ -1,0 +1,10 @@
+#!/bin/bash
+
+workspace="4:   "
+
+i3-msg "workspace $workspace; append_layout /home/joshua/configs/layouts/comms.json"
+
+i3-msg "workspace $workspace; exec google-chrome-stable --role=Slack --force-device-scale-factor=1 --app=https://liferayeng.slack.com/messages/frontend-dev;"
+i3-msg "workspace $workspace; exec google-chrome-stable --role=Skype --force-device-scale-factor=1 --app=https://web.skype.com;"
+i3-msg "workspace $workspace; exec google-chrome-stable --role=Spotify --force-device-scale-factor=1 --app=https://open.spotify.com/collection/playlists;"
+i3-msg "workspace $workspace; exec google-chrome-stable --role=Discord --force-device-scale-factor=1 --app=https://discordapp.com/channels/@me;"

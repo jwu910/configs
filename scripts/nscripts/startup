@@ -60,7 +60,6 @@ start() {
 
       # Call startup scripts
       dev
-      spotify &
     ;;
     "WORK"*)
       echo -e "Establishing work machine settings."
