@@ -1,50 +1,50 @@
 
 {
-    "layout": "splitv",
-    "percent": 0.5,
-    "type": "con",
-    "nodes": [
-        {
-            "type": "con",
-            "swallows": [
-                {
-                    "class": "^Google-chrome$"
-                }
-            ]
-        },
-        {
-            "type": "con",
-            "swallows": [
-                {
-                    "class": "^Google-chrome$"
-                }
-            ]
-        }
-    ]
+    "name": "Franz",
+    // "percent": 0.5,
+    "swallows": [
+       {
+       "class": "^Franz$",
+       // "instance": "^franz$",
+       // "title": "^Franz$",
+       // "transient_for": "^$",
+       // "window_role": "^browser\\-window$"
+       }
+    ],
+    "type": "con"
 }
 
 {
+    // splitv split container with 2 children
     "layout": "splitv",
     "percent": 0.5,
     "type": "con",
     "nodes": [
         {
-            "type": "con",
+            "name": "Spotify",
+            "percent": 0.5,
             "swallows": [
-                {
-                    "class": "^Google-chrome$",
-		    "role": "^Discord$"
-		}
-            ]
+               {
+               "class": "^Spotify$",
+               // "instance": "^spotify$",
+               // "title": "^Spotify$",
+               // "transient_for": "^$"
+               }
+            ],
+            "type": "con"
         },
         {
-            "type": "con",
+            "name": "Discord",
+            "percent": 0.5,
             "swallows": [
-                {
-                    "class": "^Google-chrome$",
-		    "role": "^Spotify$"
-                }
-            ]
+               {
+               "class": "^discord$",
+               // "instance": "^discord$",
+               // "transient_for": "^$",
+               // "window_role": "^browser\\-window$"
+               }
+            ],
+            "type": "con"
         }
     ]
 }

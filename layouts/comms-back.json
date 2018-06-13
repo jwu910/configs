@@ -1,0 +1,50 @@
+
+{
+    "layout": "splitv",
+    "percent": 0.5,
+    "type": "con",
+    "nodes": [
+        {
+            "type": "con",
+            "swallows": [
+                {
+                    "class": "^Google-chrome$"
+                }
+            ]
+        },
+        {
+            "type": "con",
+            "swallows": [
+                {
+                    "class": "^Google-chrome$"
+                }
+            ]
+        }
+    ]
+}
+
+{
+    "layout": "splitv",
+    "percent": 0.5,
+    "type": "con",
+    "nodes": [
+        {
+            "type": "con",
+            "swallows": [
+                {
+                    "class": "^Google-chrome$",
+		    "role": "^Discord$"
+		}
+            ]
+        },
+        {
+            "type": "con",
+            "swallows": [
+                {
+                    "class": "^Google-chrome$",
+		    "role": "^Spotify$"
+                }
+            ]
+        }
+    ]
+}
