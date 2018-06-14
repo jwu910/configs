@@ -17,14 +17,11 @@
 	# Pull changes from upstream. Takes two arguments 'remote' and 'branch'
 	pc = "!f() { git pull --rebase $1 $2; }; f"
 
-
-  syncloop = "!f() { git pc upstream ee-6.2.x && git pbo -f; }; f"
-
 	# Git Gud
 	gud = !bash -c "gitGud"
 
-    # Fetch and prune origin
-    fpv = "!f() { git fetch $1 -pv; }; f"
+	# Fetch and prune origin
+	fpv = "!f() { git fetch $1 -pv; }; f"
 
 	# Git Tools
 	## Committing
@@ -42,12 +39,6 @@
 	cam = commit -a -m
 	# Commit and add files
 	ca = commit -a
-	# These are the same as cam, ca and squish, except it adds new files as well
-	acam = !git add -A && git commit -m
-	aca = !git add -A && git commit
-	asquish = !git add -A && git commit --amend -C HEAD
-	# Adds all changed files into the last commit
-	squish = commit -a --amend -C HEAD
 	# Adds only staged files into the last commit
 	squeeze = commit --amend -C HEAD
 
@@ -98,10 +89,6 @@
 	rbs = rebase --skip
 	# Rebase interactively
 	rbi = rebase -i
-	# Rebase on top of master
-	#rbm = !git rebase $(git getm)
-	# Rebase on top of master interactively
-	#rbim = rebase -i $(git getm)
 
 	## Resetting
 	##--------
@@ -129,14 +116,6 @@
 	## Pushing
 	##--------
 
-	# Syncs from upstream, then pushes the master branch to origin and upstream
-	#push-allm = "!master=$(git getm); git sync-origin $master && git push origin $master && git push upstream $master;"
-	# Syncs from upstream, then pushes the master branch to origin and upstream
-	#push-all = "!f() { current_branch=$(git brn); git sync-origin $current_branch && git push origin $current_branch && git push upstream $current_branch; }; f"
-
-	#pa = !git push-all
-	#pam = !git push-allm
-	#pum = push upstream $(git getm)
 	pbo = !git push origin $(git brn)
 
 	pu = pull upstream
@@ -145,13 +124,6 @@
 	## Syncing
 	##--------
 
-	# Sync master from upstream to origin
-	# This alias will stash current changes, switch to master, sync, then switch back to the original branch and apply the stash
-	#som = "!f() { local current_branch=$(git brn); local saved_index=0; local stash_save_result=`git stash save`; [[ $stash_save_result == *\"HEAD is now at\"* ]] && saved_index=1; master=$(git getm); git checkout $master && git sync-origin $master && git checkout $current_branch && ([[ $saved_index == 1 ]]) && git stash pop; }; f;"
-	# Sync current branch with changes from upstream/master to the current branch on origin
-	#so = !git sync-origin $(git getm)
-	# Sync current branch from upstream to origin
-	#sbo = !git sync-origin $(git brn)
 	# Update current branch from origin
 	ubo = !git pull origin $(git brn)
 
@@ -159,6 +131,7 @@
 	##--------
 
 	# Pretty graph
+	ls = log --pretty=format:"%C(yellow)%h\\ %Creset%s%Cblue\\ [%cn]\\%Cred%d" --decorate
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(cyan)<%an>%Creset' --abbrev-commit --date=relative
 	lgd = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cd) %C(cyan)<%an>%Creset' --abbrev-commit --date=default
 	# lg graph with the names of the files that have changed
@@ -175,18 +148,6 @@
 	tip = !git log --format=format:%h | head -1
 	tipl = !git log --format=format:%H | head -1
 
-	## Stashing
-	##--------
-
-	# Apply stash (newest by default)
-	sa = "!f() { local stash_rev=stash@{${1:-0}}; git stash apply $stash_rev;  }; f"
-	# Pop stash (newest by default)
-	sp = "!f() { local stash_rev=stash@{${1:-0}}; git stash pop $stash_rev;  }; f"
-	# Save stash (includes untracked files)
-	ss = !git add . && git stash save
-	# List all entries in the stash
-	sl = stash list
-
 	## Diffing
 	##--------
 
@@ -200,43 +161,8 @@
 	# Show *just* the file names that have been changed for a commit/treeish
 	ldl = "!f() { local ref_spec=$(git get-custom-refspec $1); git diff --pretty='format:' --name-only $ref_spec; }; f"
 
-	## Opening files
-	##--------
-
-	# open batch of files
-	#bopen = "!f() { local ref_spec=$(git get-custom-refspec $1); editor=`git config --get user.editor`;files=`git diff --pretty=format: --name-only $ref_spec`;useopen=`command -v open`; usecygwin=`command -v cygstart`; [[ -n $useopen ]] && open -a \"$editor\" $files && exit $?; [[ -n $usecygwin ]] && editor=$(cygpath -d $editor); for i in $files; do echo opening $i; $usecygwin $editor $i; done }; f"
-	# open each file individually
-	#open = "!f() { local ref_spec=$(git get-custom-refspec $1); editor=`git config --get user.editor`;files=`git diff --pretty=format: --name-only $ref_spec`;useopen=`command -v open`; usecygwin=`command -v cygstart`; [[ -n $useopen ]] && for i in $files; do echo opening $i; $useopen -a \"$editor\" $i; done && exit $?; [[ -n $usecygwin ]] && editor=$(cygpath -d $editor); for i in $files; do echo opening $i; $usecygwin $editor $i; done }; f"
-	# Open all files that are different from master
-	#openm = !git open $(git getm)..
-
-	## Submodules
-	##--------
-
-	# Update submodules
-	subu = submodule update
-	# Update submodules and initialize them
-	subi = submodule update --init
-
-	## Submitting Pull Requests
-	##--------
-
-	# Pull request
-	pr = pull-request
-	# Show pull requests w/stats
-	prs = pull-request stat
-	# Submit pull request and close the current one
-	prcs = !git pr submit -q && git pr close
-	# Sets the update branch based on the current repo directory name (so liferay-portal-ee-6.1.x will have an update branch of ee-6.1.x)
-	set-pr-branch-config = "!f(){ git config "git-pull-request.$(git rev-parse --show-toplevel).$1" "$2"; }; f"
-	set-update-branch = "!f(){ git set-pr-branch-config "update-branch" "${1:-$(git getm)}"; }; f"
-	set-work-dir = "!f(){ git set-pr-branch-config "work-dir" "$1"; }; f"
-
 	## Misc
 	##--------
-
-	# Checkout master
-	m = !git co $(git getm)
 
 	# Shortcut for help
 	h = help
@@ -253,17 +179,16 @@
 	# Open the url to the latest JIRA ticket referenced in the log
 	jira = "!f() { ticketId=$(git get-latest-jira-id $2); open http://issues.liferay.com/browse/$ticketId;  }; f"
 
-	# Get a range based commit-ish based on the passed sha. Uses HEAD by default, but if a sha is passed, it creates a range
-	# that refers to one previous. If you pass a range, it will leave it untouched so that you can customize the range yourself.
-	# Used in many aliases
-	# eg. git get-custom-refspec					# prints HEAD^..HEAD
-	#     git get-custom-refspec ^					# prints HEAD^..
-	#     git get-custom-refspec 81c35e1			# prints 81c35e1^..81c35e1
-	#     git get-custom-refspec 5250022..master	# prints 5250022..master
-	get-custom-refspec = "!f() { to_rev=${1:-HEAD}; [[ $to_rev == ^ ]] && to_rev=HEAD^..; old_head=${to_rev}^; new_head=$to_rev; if [[ $to_rev == *..* ]]; then old_head=${to_rev%%..*}; new_head=${to_rev#*..*}; fi; ref_spec=$old_head..$new_head; echo $ref_spec; }; f"
-
 	# Rank contributors by number of commits
 	stats = shortlog -s -n
+
+	# Reset last commit
+	pop = reset HEAD^
+
+	# Remove untracked files and directories
+	cln = clean -f -d
+
+##### UNUSED #####
 
 	# Same as add, but uses the verbose option since git add doesn't inform you of what exactly you just added
 	# aa = add -v
@@ -271,8 +196,92 @@
 	# List ignored files
 	# ls-ignored = ls-files --exclude-standard --ignored --others
 
-	# Reset last commit
-	pop = reset HEAD^
+	# Get a range based commit-ish based on the passed sha. Uses HEAD by default, but if a sha is passed, it creates a range
+	# that refers to one previous. If you pass a range, it will leave it untouched so that you can customize the range yourself.
+	# Used in many aliases
+	# eg. git get-custom-refspec					# prints HEAD^..HEAD
+	#     git get-custom-refspec ^					# prints HEAD^..
+	#     git get-custom-refspec 81c35e1			# prints 81c35e1^..81c35e1
+	#     git get-custom-refspec 5250022..master	# prints 5250022..master
+	#get-custom-refspec = "!f() { to_rev=${1:-HEAD}; [[ $to_rev == ^ ]] && to_rev=HEAD^..; old_head=${to_rev}^; new_head=$to_rev; if [[ $to_rev == *..* ]]; then old_head=${to_rev%%..*}; new_head=${to_rev#*..*}; fi; ref_spec=$old_head..$new_head; echo $ref_spec; }; f"
 
-	# Remove untracked files and directories
-	cln = clean -f -d
+	# Checkout master
+	#m = !git co $(git getm)
+
+	## Submodules
+	##--------
+
+	# Update submodules
+	#subu = submodule update
+	# Update submodules and initialize them
+	#subi = submodule update --init
+
+	## Submitting Pull Requests
+	##--------
+
+	# Pull request
+	#pr = pull-request
+	# Show pull requests w/stats
+	#prs = pull-request stat
+	# Submit pull request and close the current one
+	#prcs = !git pr submit -q && git pr close
+	# Sets the update branch based on the current repo directory name (so liferay-portal-ee-6.1.x will have an update branch of ee-6.1.x)
+	#set-pr-branch-config = "!f(){ git config "git-pull-request.$(git rev-parse --show-toplevel).$1" "$2"; }; f"
+	#set-update-branch = "!f(){ git set-pr-branch-config "update-branch" "${1:-$(git getm)}"; }; f"
+	#set-work-dir = "!f(){ git set-pr-branch-config "work-dir" "$1"; }; f"
+
+	## Opening files
+	##--------
+
+	# open batch of files
+	#bopen = "!f() { local ref_spec=$(git get-custom-refspec $1); editor=`git config --get user.editor`;files=`git diff --pretty=format: --name-only $ref_spec`;useopen=`command -v open`; usecygwin=`command -v cygstart`; [[ -n $useopen ]] && open -a \"$editor\" $files && exit $?; [[ -n $usecygwin ]] && editor=$(cygpath -d $editor); for i in $files; do echo opening $i; $usecygwin $editor $i; done }; f"
+	# open each file individually
+	#open = "!f() { local ref_spec=$(git get-custom-refspec $1); editor=`git config --get user.editor`;files=`git diff --pretty=format: --name-only $ref_spec`;useopen=`command -v open`; usecygwin=`command -v cygstart`; [[ -n $useopen ]] && for i in $files; do echo opening $i; $useopen -a \"$editor\" $i; done && exit $?; [[ -n $usecygwin ]] && editor=$(cygpath -d $editor); for i in $files; do echo opening $i; $usecygwin $editor $i; done }; f"
+	# Open all files that are different from master
+	#openm = !git open $(git getm)..
+
+	## Stashing
+	##--------
+
+	# Apply stash (newest by default)
+	#sa = "!f() { local stash_rev=stash@{${1:-0}}; git stash apply $stash_rev;  }; f"
+	# Pop stash (newest by default)
+	#sp = "!f() { local stash_rev=stash@{${1:-0}}; git stash pop $stash_rev;  }; f"
+	# Save stash (includes untracked files)
+	#ss = !git add . && git stash save
+	# List all entries in the stash
+	#sl = stash list
+
+
+	# Sync master from upstream to origin
+	# This alias will stash current changes, switch to master, sync, then switch back to the original branch and apply the stash
+	#som = "!f() { local current_branch=$(git brn); local saved_index=0; local stash_save_result=`git stash save`; [[ $stash_save_result == *\"HEAD is now at\"* ]] && saved_index=1; master=$(git getm); git checkout $master && git sync-origin $master && git checkout $current_branch && ([[ $saved_index == 1 ]]) && git stash pop; }; f;"
+	# Sync current branch with changes from upstream/master to the current branch on origin
+	#so = !git sync-origin $(git getm)
+	# Sync current branch from upstream to origin
+	#sbo = !git sync-origin $(git brn)
+
+
+	# Syncs from upstream, then pushes the master branch to origin and upstream
+	#push-allm = "!master=$(git getm); git sync-origin $master && git push origin $master && git push upstream $master;"
+	# Syncs from upstream, then pushes the master branch to origin and upstream
+	#push-all = "!f() { current_branch=$(git brn); git sync-origin $current_branch && git push origin $current_branch && git push upstream $current_branch; }; f"
+
+	#pa = !git push-all
+	#pam = !git push-allm
+	#pum = push upstream $(git getm)
+
+	# Rebase on top of master
+	#rbm = !git rebase $(git getm)
+	# Rebase on top of master interactively
+	#rbim = rebase -i $(git getm)
+
+
+	# These are the same as cam, ca and squish, except it adds new files as well
+	#acam = !git add -A && git commit -m
+	#aca = !git add -A && git commit
+	#asquish = !git add -A && git commit --amend -C HEAD
+	# Adds all changed files into the last commit
+	#squish = commit -a --amend -C HEAD
+
+	# syncloop = "!f() { git pc upstream ee-6.2.x && git pbo -f; }; f"
