@@ -227,7 +227,7 @@ function cdn(){ for i in `seq $1`; do cd ..; done;}
 PATH="$PATH:/home/joshua/configs/scripts"
 export PATH
 
-export TEXT_EDITOR="subl"
+export TEXT_EDITOR="code"
 
 alias fixWatches="echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p"
 
