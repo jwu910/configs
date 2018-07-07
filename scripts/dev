@@ -4,7 +4,4 @@ workspace="2:   "
 
 i3-msg "workspace $workspace; append_layout /home/joshua/configs/layouts/dev.json"
 
-i3-msg "workspace $workspace; exec subl;"
-i3-msg "workspace $workspace; exec gnome-terminal;"
-i3-msg "workspace $workspace; exec gnome-terminal;"
-i3-msg "workspace $workspace; exec gnome-terminal;"
+i3-msg "workspace $workspace; exec code;"
