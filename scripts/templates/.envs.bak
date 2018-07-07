@@ -12,3 +12,14 @@ export MONITOR_NAME=""
 
 # Token used for polybar module github
 export TOKEN_GITHUB=""
+
+# Main text editor
+export MAIN_EDITOR="code"
+
+# Main terminal text editor
+export MAIN_TERM_EDITOR="vim"
+
+# Nscript variables
+export NSCRIPT_SCRIPT_DIR=""
+export NSCRIPT_EXECUTABLE_DIR=""
+export NSCRIPT_EDITOR=""
