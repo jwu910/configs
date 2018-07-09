@@ -4,11 +4,11 @@
     "type": "con",
     "nodes": [
         {
-            "name": "Sublime",
+            "name": "Code",
             "type": "con",
             "swallows": [
                 {
-                    "class": "^Subl$"
+                    "class": "^Code$"
                 }
             ]
         }
