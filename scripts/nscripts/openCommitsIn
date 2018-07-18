@@ -76,7 +76,7 @@ elif [ $FILES_COUNT -ge $MIN_THRESH ]; then
       [Nn]* )
         exit 0; break;;
       * )
-        echo "Invalid response, please enter Y or N."; break;;
+        echo "Invalid response, please enter Y or N.";
     esac
   done
 else
