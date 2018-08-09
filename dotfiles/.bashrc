@@ -247,6 +247,8 @@ if [ "$MACHINE_NAME" = "PERSONAL" ]; then
 	eval $(keychain --eval --quiet ~/.ssh/id_rsa)
 fi
 
+function getJIRA(){ git rev-parse --abbrev-ref HEAD | grep -Eo '([A-Z]{3,}-)([0-9]+)' -m 1 ; }
+
 source ~/.envs
 source ~/.tokens
 source /etc/profile.d/autojump.sh

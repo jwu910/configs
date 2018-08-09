@@ -182,25 +182,6 @@ function lsl2 {
   done
 }
 
-
-function deployLoop {
-  local deploy=ant clean deploy
-
-  loopdir && "$deploy" &&
-  cd ../asset-entry-set-portlet && "$deploy" &&
-  cd ../asset-sharing-portlet && "$deploy" &&
-  cd ../push-notifications-portlet && "$deploy" &&
-  cd ../token-auth-portlet && "$deploy" &&
-  cd ../marketplace-portlet && "$deploy" &&
-  cd ../../themes/loop-theme && "$deploy" &&
-  cd ../../hooks/portal-compat-hook && "$deploy" &&
-  cd ../../webs/url-metadata-scraper-web && "$deploy" &&
-  cd ../elasticsearch-web && "$deploy" &&
-  cd ../../portlets/loop-portlet && "$deploy" &&
-  clear &&
-  echo Loop deployed.
-}
-
 function fixSql {
   echo "SET SESSION sql_mode = 'STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';"
   echo "SET GLOBAL sql_mode = 'STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';"

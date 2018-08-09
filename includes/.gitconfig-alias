@@ -8,6 +8,9 @@
 	# Git log search Compact - Takes search string as first parameter - Displays compact view of commit information
 	lsc =  "!f() { git --no-pager log --grep $1 --pretty=format:'%C(yellow)%h%Creset %C(white)%s - %an%Creset (%C(green)%ar%Creset)'; }; f"
 
+	# Get jira ticket
+	ticket = "!f() { git rev-parse --abbrev-ref HEAD | grep -Eo '([A-Z]{3,}-)([0-9]+)' -m 1 ; }; f"
+
 	# Rename current branch
 	rnb = "!f() { git branch -m $1 && echo Branch renamed to $1; }; f"
 
@@ -31,6 +34,8 @@
 	ci = commit
 	# Commit w/ message
 	cim = commit -m
+	# Commit w/ message prefixed with JIRA ticket
+	cims = "!f() { TICKET=$(git ticket); git commit -m \"$TICKET $1\"; }; f"
 	# Amend commit
 	cia = commit --amend
 	# Amend commit w/message
