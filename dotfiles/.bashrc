@@ -249,12 +249,15 @@ fi
 
 function getJIRA(){ git rev-parse --abbrev-ref HEAD | grep -Eo '([A-Z]{3,}-)([0-9]+)' -m 1 ; }
 
+alias ff="git ls-files | grep $1"
+
 source ~/.envs
 source ~/.tokens
 source /etc/profile.d/autojump.sh
 source /usr/share/nvm/init-nvm.sh
 
-PATH="$PATH:$HOME/configs/scripts/nscripts-links"
-export PATH
+export PATH="$PATH:$HOME/configs/scripts/nscripts-links"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+export PATH="$PATH:$HOME/.gem/ruby/2.5.0/bin"

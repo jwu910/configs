@@ -3,7 +3,7 @@
 ## Liferay specific bashrc customizations ##
 ############################################
 
-export ANT_OPTS="-Xms2048m -Xmx4096m -XX:MaxPermSize=1024m -Dorg.gradle.daemon=false"
+export ANT_OPTS="-Xms4g -Xmx4g -Xmn256m -XX:PermSize=256m -XX:MaxPermSize=1024m -XX:+UseConcMarkSweepGC -XX:-UseGCOverheadLimit"
 
 LIFERAY_DIR=`find ~ -maxdepth 3 -type d -name 'liferay' -print -quit`
 
@@ -14,17 +14,20 @@ alias findjsp='for file in `git ls-files | grep -v init | grep .jsp` ; do echo -
 function runserver {
   local repoRoot=$(git rev-parse --show-toplevel 2>/dev/null)
   echo "Starting server..."
-  cd "$repoRoot" && ../bundles/tomcat*/bin/catalina.sh run | grep -E --color=always 'Server startup in |$' | grep -E --color=always 'Error|Severe|severe|error|caused by|Caused By|ERROR|Caused by|$'
+  cd "$repoRoot" && ../bundles/tomcat*/bin/catalina.sh run | grep -E --color=always 'Server startup in |$' | grep -E --color=always 'Error|Severe|severe|error|Unable|caused by|Caused By|ERROR|not found|thrown an exception|Caused by|Unable|refused|lost|$'
 }
 
 alias killserver='echo Killing Tomcat && kill -9 `ps aux | grep -v grep | grep tomcat | awk '"'"'{print $2}'"'"'`'
 
+# Get project root path
+function rootLevel {
+  git rev-parse --show-toplevel 2>/dev/null
+}
+
 # Liferay run-gradle script to find gradle files in parent directories for portlet deployment
 function rungradle {
-
   # Rename settings.gradle temporarily
-  if [ -e settings.gradle ]
-    then
+  if [ -e settings.gradle ]; then
       mv settings.gradle settings.gradle.tmp
   fi
 
@@ -37,10 +40,10 @@ function rungradle {
     root_level=$(which gradle)
   fi
 
+  # Execute arguments as gradle commands
   "$root_level" $@
 
-  if [ -e settings.gradle.tmp ]
-    then
+  if [ -e settings.gradle.tmp ]; then
       mv settings.gradle.tmp settings.gradle
   fi
 }
