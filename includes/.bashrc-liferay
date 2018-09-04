@@ -3,7 +3,11 @@
 ## Liferay specific bashrc customizations ##
 ############################################
 
+# ANT HOME
 export ANT_OPTS="-Xms4g -Xmx4g -Xmn256m -XX:PermSize=256m -XX:MaxPermSize=1024m -XX:+UseConcMarkSweepGC -XX:-UseGCOverheadLimit"
+
+# Gradle Options
+export GRADLE_OPTS="-Xmx1024m -Xms256m -XX:MaxPermSize=512m -XX:+CMSClassUnloadingEnabled -XX:+HeapDumpOnOutOfMemoryError"
 
 LIFERAY_DIR=`find ~ -maxdepth 3 -type d -name 'liferay' -print -quit`
 
@@ -14,7 +18,7 @@ alias findjsp='for file in `git ls-files | grep -v init | grep .jsp` ; do echo -
 function runserver {
   local repoRoot=$(git rev-parse --show-toplevel 2>/dev/null)
   echo "Starting server..."
-  cd "$repoRoot" && ../bundles/tomcat*/bin/catalina.sh run | grep -E --color=always 'Server startup in |$' | grep -E --color=always 'Error|Severe|severe|error|Unable|caused by|Caused By|ERROR|not found|thrown an exception|Caused by|Unable|refused|lost|$'
+  cd "$repoRoot" && ../bundles/tomcat*/bin/catalina.sh run | grep -E --color=always 'Server startup in |$' | grep -E --color=always 'Error|Severe|severe|error|Unable|caused by|Caused By|ERROR|not found|thrown an exception|Caused by|Unable|refused|lost|org.apache.catalina.startup.Catalina.start Server startup in|$'
 }
 
 alias killserver='echo Killing Tomcat && kill -9 `ps aux | grep -v grep | grep tomcat | awk '"'"'{print $2}'"'"'`'

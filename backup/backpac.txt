@@ -1,5 +1,6 @@
 accountsservice
 acpid
+alacritty-git
 alsa-utils
 antergos-gnome-defaults-list
 antergos-gnome-setup
@@ -76,6 +77,7 @@ gcc
 gcc-libs
 gedit
 gettext
+gimp
 git
 gitlab
 glibc
