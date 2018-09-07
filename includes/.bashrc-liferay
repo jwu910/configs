@@ -23,35 +23,6 @@ function runserver {
 
 alias killserver='echo Killing Tomcat && kill -9 `ps aux | grep -v grep | grep tomcat | awk '"'"'{print $2}'"'"'`'
 
-# Get project root path
-function rootLevel {
-  git rev-parse --show-toplevel 2>/dev/null
-}
-
-# Liferay run-gradle script to find gradle files in parent directories for portlet deployment
-function rungradle {
-  # Rename settings.gradle temporarily
-  if [ -e settings.gradle ]; then
-      mv settings.gradle settings.gradle.tmp
-  fi
-
-  # Run regular gradle commands
-  local root_level=$(git rev-parse --show-toplevel 2>/dev/null)
-
-  if [[ -n "$root_level" && -f "$root_level/gradlew" ]]; then
-    root_level="$root_level/gradlew"
-  else
-    root_level=$(which gradle)
-  fi
-
-  # Execute arguments as gradle commands
-  "$root_level" $@
-
-  if [ -e settings.gradle.tmp ]; then
-      mv settings.gradle.tmp settings.gradle
-  fi
-}
-
 alias rgcd='rungradle clean deploy'
 
 # Git Format Patch
@@ -66,18 +37,18 @@ function fp {
     ls "$dirPath"/patch_files | while read -r file; do echo -e "\033[03;33mFile: \033[01;00m$file"; done
 
     while true; do
-  echo -e "Y to keep existing files and continue. H to clear existing files and continue. N to stop and exit."
+      echo -e "Y to keep existing files and continue. H to clear existing files and continue. N to stop and exit."
         read yn
         case $yn in
-            [Yy]* )
-    ls "$dirPath"/patch_files |
-        while read -r file; do
-      mv "$dirPath"/patch_files/"$file" "$dirPath"/patch_files/old-"$file"
-        done;
-    git format-patch -"$1" "$2" -o "$dirPath"/patch_files -q; break;;
-      [Hh]* ) dp && git format-patch -"$1" "$2" -o "$dirPath"/patch_files -q; break;;
-            [Nn]* ) echo "Selected No, Exiting."; return "0"; break;;
-            * ) echo "Invalid response.";
+          [Yy]* )
+            ls "$dirPath"/patch_files | while read -r file; do
+              mv "$dirPath"/patch_files/"$file" "$dirPath"/patch_files/old-"$file" 
+            done;
+
+            git format-patch -"$1" "$2" -o "$dirPath"/patch_files -q; break;;
+          [Hh]* ) dp && git format-patch -"$1" "$2" -o "$dirPath"/patch_files -q; break;;
+          [Nn]* ) echo "Selected No, Exiting."; return "0"; break;;
+              * ) echo "Invalid response.";
         esac
     done
 
@@ -139,12 +110,6 @@ function jlsc {
 #    local branch_name=$(git rev-parse --abbrev-ref HEAD | grep -Eo '([A-Z]{3,}-)([0-9]+)' -m 1)
 #    didYou && gh pr -s "$1" -b "$2" -D "Hi @$1,<br><br>Attached is the fix for [$branch_name](http://issues.liferay.com/browse/$branch_name).<br><br>Let me know if you have any questions. Thanks."
 #}
-
-function rungradle2 {
-    mv ../settings.gradle ../settings.gradle.tmp
-    rungradle clean deploy
-    mv ../settings.gradle.tmp ../settings.gradle
-}
 
 function jira {
     local branch_name=$(git rev-parse --abbrev-ref HEAD | grep -Eo '([A-Z]{3,}-)([0-9]+)' -m 1)
@@ -208,75 +173,4 @@ function sfm {
   else
     echo -e "$fg_bold[red]Please choose a branch to compare changes to.$reset_color EG: sfm ee-6.2.x"
   fi
-}
-
-# function deployAllOSB {
-#   local SRC_DIR=$(pwd)
-#   local NEST_COUNT=0
-#   local SEARCH_STRING="$1"
-#   local DIRS_COUNT=`find "$SEARCH_STRING"-*/ -maxdepth 0 -type d | wc -l`
-#   echo $DIRS_COUNT
-
-#   function findAllOSB() {
-#     for dir in $SEARCH_STRING*/; do
-#       if [ ! -d $dir ]; then
-#         cd $SRC_DIR
-#         NEST_COUNT=0
-#       fi
-
-#       echo "$SEARCH_STRING == $dir"
-
-#       if [[ $SEARCH_STRING == $dir*/ ]]; then
-#         echo $dir
-#         ((NEST_COUNT++))
-#         cd $dir
-
-#         if [ -f build.gradle ]; then
-#           echo $(pwd)
-#           echo "Run RGCD" && cd .. && ((NEST_COUNT--))
-#         else
-#           findAllOSB
-#         fi
-#       fi
-#     done
-#   }
-
-#   findAllOSB
-#   cd $SRC_DIR
-# }
-
-function deployAllOSB {
-  local SRC_DIR=$(pwd)
-  local NEST_COUNT=0
-  local SEARCH_STRING="$1"
-  local DIRS=`find "$SEARCH_STRING"*/ -maxdepth 1 -type d`
-
-  function findAllOSB() {
-    for dir in $DIRS; do
-
-      echo $dir
-      if [ ! -d $dir ]; then
-        cd $SRC_DIR
-        NEST_COUNT=0
-      fi
-
-      if [[ $dir = *$SEARCH_STRING* ]]; then
-        echo "$dir ========= $SEARCH_STRING"
-        echo "WERE GOING IN"
-        ((NEST_COUNT++))
-        cd $dir
-        echo $(pwd)
-
-        if [ -f build.gradle ]; then
-          echo $(pwd)
-          echo "Run RGCD" && cd .. && ((NEST_COUNT--))
-        else
-          cd ..
-        fi
-      fi
-    done
-  }
-
-  findAllOSB
-  cd $SRC_DIR
 }
