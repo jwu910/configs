@@ -3,6 +3,7 @@
 PROJECT=`printf '%q\n' "${PWD##*/}"`
 GREEN='\033[1;32m'
 CLEAR='\033[0m'
+
 if [[ ! $PROJECT = osb-* ]]; then
     echo "Please execute from a liferay OSB- project"; return "1";
 fi
