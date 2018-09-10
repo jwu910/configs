@@ -10,7 +10,7 @@ if [[ ! $PROJECT = osb-* ]]; then
 fi
 
 SRC_DIR=$(pwd)
-DIRS=`git ls-files --directory | grep build.gradle | xargs dirname`
+DIRS=`git ls-files | grep build.gradle | xargs dirname`
 
 deployAll() {
     for dir in $DIRS; do
