@@ -147,12 +147,14 @@ fi
 
 unset color_prompt force_color_prompt
 
-# Alias update all ## Ubuntu
-#alias updateall='sudo apt update; sudo apt upgrade -y; sudo apt autoremove -y; sudo apt autoclean'
+source ~/.envs
+source ~/.tokens
+source /etc/profile.d/autojump.sh
+source /usr/share/nvm/init-nvm.sh
 
 # Shortcut to open bashrc
-alias brc="nano ~/.bashrc"
-alias brcl="nano ~/configs/includes/.bashrc-liferay"
+alias brc="vim ~/.bashrc"
+alias brcl="vim ~/configs/includes/.bashrc-liferay"
 alias sbrc="source ~/.bashrc && echo '.bashrc reloaded.'"
 
 # Restart network manager
@@ -251,10 +253,13 @@ function getJIRA(){ git rev-parse --abbrev-ref HEAD | grep -Eo '([A-Z]{3,}-)([0-
 
 alias ff="git ls-files | grep $1"
 
-source ~/.envs
-source ~/.tokens
-source /etc/profile.d/autojump.sh
-source /usr/share/nvm/init-nvm.sh
+ACTIVE_MONITOR=`xrandr --listactivemonitors | grep 0 | awk '{print $NF}'`
+
+if [ ! "$MONITOR_NAME" = "$TEMP_MONITOR" ]; then
+    echo "Active monitor is not $MONITOR_NAME"
+
+    MONITOR_NAME="$ACTIVE_MONITOR"
+fi
 
 export PATH="$PATH:$HOME/configs/scripts/nscripts-links"
 
