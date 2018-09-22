@@ -15,7 +15,7 @@ DIRS=`git ls-files | grep build.gradle | xargs dirname`
 deployAll() {
     for dir in $DIRS; do
         if [[ ! "." = $dir ]]; then
-            cd $dir 
+            cd $dir
             echo -e "\n${GREEN}CD to $dir${CLEAR}\n"
             rungradle clean deploy || echo -e "${RED}ERROR: gradle clean deploy failed.${CLEAR}"
             cd $SRC_DIR;
