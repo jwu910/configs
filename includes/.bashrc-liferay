@@ -116,14 +116,6 @@ function jira {
     xdg-open https://issues.liferay.com/browse/"$branch_name" || open https://issues.liferay.com/browse/"$branch_name" || echo "Could not open Jira."
 }
 
-alias osbloop="cd $LIFERAY_DIR/**/osb-loop"
-alias loopdir="cd $LIFERAY_DIR/ee-6.2.x/liferay-plugins-ee/portlets/loop-portlet/"
-alias looptheme="cd $LIFERAY_DIR/ee-6.2.x/liferay-plugins-ee/themes/loop-theme/"
-alias 62dir="cd $LIFERAY_DIR/ee-6.2.x/liferay-portal-ee/"
-alias 70dir="cd $LIFERAY_DIR/7.0.x/liferay-portal-ee/"
-alias 70pdir="cd $LIFERAY_DIR/7.0.x-private/liferay-portal-ee/"
-alias masterdir="cd $LIFERAY_DIR/ce-master/liferay-portal/"
-
 function lsl {
   local src_dir="$LIFERAY_DIR/ee-6.2.x/liferay-plugins-ee/portlets/loop-portlet/docroot/js/dist"
   local dst_dir="$LIFERAY_DIR/ee-6.2.x/bundles/tomcat-7.0.62/webapps/loop-portlet/js/dist"
