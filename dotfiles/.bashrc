@@ -252,6 +252,7 @@ fi
 function getJIRA(){ git rev-parse --abbrev-ref HEAD | grep -Eo '([A-Z]{3,}-)([0-9]+)' -m 1 ; }
 
 alias ff="git ls-files | grep $1"
+alias bl="sudo xbacklight -set $1"
 
 ACTIVE_MONITOR=`xrandr --listactivemonitors | grep 0 | awk '{print $NF}'`
 
