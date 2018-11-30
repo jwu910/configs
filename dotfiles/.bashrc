@@ -258,6 +258,7 @@ ACTIVE_MONITOR=`xrandr --listactivemonitors | grep 0 | awk '{print $NF}'`
 
 if [ ! "$MONITOR_NAME" = "$TEMP_MONITOR" ]; then
     echo "Active monitor is not $MONITOR_NAME"
+    echo "Active Monitor is currently $ACTIVE_MONITOR"
 
     MONITOR_NAME="$ACTIVE_MONITOR"
 fi
