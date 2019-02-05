@@ -149,8 +149,7 @@ unset color_prompt force_color_prompt
 
 source ~/.envs
 source ~/.tokens
-source /etc/profile.d/autojump.sh
-source /usr/share/nvm/init-nvm.sh
+source /usr/share/autojump/autojump.sh
 
 # Shortcut to open bashrc
 alias brc="vim ~/.bashrc"
@@ -159,6 +158,12 @@ alias sbrc="source ~/.bashrc && echo '.bashrc reloaded.'"
 
 # Restart network manager
 alias restartnetwork="sudo systemctl restart NetworkManager.service && echo Network manager restarting..."
+
+alias scrshot='sh ~/configs/scripts/screenshot.sh -s'
+alias fixWatches="echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p"
+alias tr3="tree -d -L 3 -I node_modules"
+alias ff="git ls-files | grep $1"
+alias bl="sudo xbacklight -set $1"
 
 # Start github
 function ghub {
@@ -172,11 +177,6 @@ function ghub {
 	local openUrl="https://github.com/$urlPath"
 	"$BROWSER" $openUrl &
 }
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-
-alias scrshot='sh ~/configs/scripts/screenshot.sh -s'
 
 if [ -d "$HOME/.bin" ] ; then
   PATH="$PATH:$HOME/.bin"
@@ -226,12 +226,9 @@ extract () {
 function cdn(){ for i in `seq $1`; do cd ..; done;}
 
 # Personal scripts path
-PATH="$PATH:/home/joshua/configs/scripts"
-export PATH
+export PATH="$PATH:/home/joshua/configs/scripts"
 
 export TEXT_EDITOR="code"
-
-alias fixWatches="echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p"
 
 source ~/configs/includes/.bashrc-liferay
 
@@ -241,9 +238,6 @@ source ~/configs/includes/.bashrc-liferay
 # Pacaur backup installed packages
 echo "$(pacaur -Qqe)" > ~/configs/backup/backpac.txt
 
-# Local Tree
-alias tr3="tree -d -L 3 -I node_modules"
-
 # SSH Key login
 if [ "$MACHINE_NAME" = "PERSONAL" ]; then
 	eval $(keychain --eval --quiet ~/.ssh/id_rsa)
@@ -251,17 +245,22 @@ fi
 
 function getJIRA(){ git rev-parse --abbrev-ref HEAD | grep -Eo '([A-Z]{3,}-)([0-9]+)' -m 1 ; }
 
-alias ff="git ls-files | grep $1"
-alias bl="sudo xbacklight -set $1"
 
-ACTIVE_MONITOR=`xrandr --listactivemonitors | grep 0 | awk '{print $NF}'`
+#ACTIVE_MONITOR=`xrandr --listactivemonitors | grep 0 | awk '{print $NF}'`
 
-if [ ! "$MONITOR_NAME" = "$TEMP_MONITOR" ]; then
-    echo "Active monitor is not $MONITOR_NAME"
-    echo "Active Monitor is currently $ACTIVE_MONITOR"
+#if [ ! "$MONITOR_NAME" = "$TEMP_MONITOR" ]; then
+#    echo "Active monitor is not $MONITOR_NAME"
+#    echo "Active Monitor is currently $ACTIVE_MONITOR"
+#
+#    MONITOR_NAME="$ACTIVE_MONITOR"
+#fi
 
-    MONITOR_NAME="$ACTIVE_MONITOR"
-fi
+export NSCRIPT_SCRIPT_DIR="/home/joshua/configs/scripts/nscripts"
+export NSCRIPT_EXECUTABLE_DIR="/home/joshua/configs/scripts/nscripts-links"
+
+eval "$(hub alias -s)"
+
+#----------------------------------
 
 export WORKON_HOME=$HOME/.virtualenvs
 source /usr/bin/virtualenvwrapper.sh
@@ -275,3 +274,8 @@ export PATH="$PATH:$HOME/.gem/ruby/2.5.0/bin"
 
 export PATH="$PATH:$HOME/.local/bin"
 export GPG_TTY=$(tty)
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

@@ -4,7 +4,7 @@
 ############################################
 
 # ANT HOME
-export ANT_OPTS="-Xms4g -Xmx4g -Xmn256m -XX:PermSize=256m -XX:+UseConcMarkSweepGC -XX:-UseGCOverheadLimit"
+export ANT_OPTS="-Xms512m -Xmx512m -Xmn256M -XX:PermSize=256M -XX:+UseConcMarkSweepGC -XX:-UseGCOverheadLimit"
 
 # Gradle Options
 export GRADLE_OPTS="-Xmx1024m -Xms256m -XX:+CMSClassUnloadingEnabled -XX:+HeapDumpOnOutOfMemoryError"
@@ -159,10 +159,26 @@ alias i3config="vim ~/configs/i3/config"
 
 alias acd="ant clean deploy"
 
+alias bdd="npm run build:dev && rgcd -x npmRunBuild"
+
 function sfm {
   if [ "$1" ]; then
     git diff --stat --relative --name-only "$1".. | grep -E '.(js|(s)?css)$' | xargs check_sf;
   else
     echo -e "$fg_bold[red]Please choose a branch to compare changes to.$reset_color EG: sfm ee-6.2.x"
   fi
+}
+
+function java8 {
+  sudo update-alternatives --set java /usr/lib/jvm/java-8-oracle/bin/java;
+  sudo update-alternatives --set javac /usr/lib/jvm/java-8-oracle/bin/javac;
+  export JAVA_HOME=/usr/lib/jvm/java-8-oracle/jre;
+  export JRE_HOME=/usr/lib/jvm/java-8-oracle/jre;
+}
+
+function java7 {
+  sudo update-alternatives --set java /usr/lib/jvm/jdk7/bin/java;
+  sudo update-alternatives --set javac /usr/lib/jvm/jdk7/bin/javac;
+  export JAVA_HOME=/usr/lib/jvm/jdk7;
+  export JRE_HOME=/usr/lib/jvm/jdk7;
 }
