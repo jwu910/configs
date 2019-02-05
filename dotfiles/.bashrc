@@ -263,8 +263,15 @@ if [ ! "$MONITOR_NAME" = "$TEMP_MONITOR" ]; then
     MONITOR_NAME="$ACTIVE_MONITOR"
 fi
 
+export WORKON_HOME=$HOME/.virtualenvs
+source /usr/bin/virtualenvwrapper.sh
+
+
 export PATH="$PATH:$HOME/configs/scripts/nscripts-links"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 export PATH="$PATH:$HOME/.gem/ruby/2.5.0/bin"
+
+export PATH="$PATH:$HOME/.local/bin"
+export GPG_TTY=$(tty)

@@ -33,7 +33,7 @@
 	# Commit
 	ci = commit
 	# Commit w/ message
-	cim = commit -m -S
+	cim = commit -S -m
 	# Commit w/ message prefixed with JIRA ticket
 	cims = "!f() { TICKET=$(git ticket); git commit -S -m \"$TICKET $1\"; }; f"
 	# Amend commit

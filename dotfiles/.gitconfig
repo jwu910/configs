@@ -10,6 +10,7 @@
 
 [includeIf "gitdir:~/"]
 	path = configs/includes/.gitconfig-personal
+    path = configs/.signkey
 
 [includeIf "gitdir:**/liferay/"]
 	path = configs/includes/.gitconfig-work
