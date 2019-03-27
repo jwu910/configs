@@ -140,7 +140,7 @@ parse_git_branch() {
 }
 
 if [ "$force_color_prompt" = yes ]; then
-    PS1='\[\033[1m\]\[\033[90m\][${debian_chroot:+($debian_chroot)}\[\033[02;93m\]$(__droppath "\w" 50)\[\033[35m\]$(parse_git_branch)\[\033[00;90m\]]\[\033[00m\]$ '
+    PS1='\[\033[1m\]\[\033[90m\][${debian_chroot:+($debian_chroot)}\[\033[02;93m\]$(__droppath "\w" 50)\[\033[35m\]$(parse_git_branch)\[\033[00;90m\]]\[\033[00m\] \n| 👏👏👏🍞 >> $ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u:$(__droppath "\w" 50)$(parse_git_branch)\$ '
 fi
@@ -159,6 +159,7 @@ alias sbrc="source ~/.bashrc && echo '.bashrc reloaded.'"
 # Restart network manager
 alias restartnetwork="sudo systemctl restart NetworkManager.service && echo Network manager restarting..."
 
+alias clearBuilds='git checkout -- src/**/dist/*'
 alias scrshot='sh ~/configs/scripts/screenshot.sh -s'
 alias fixWatches="echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p"
 alias tr3="tree -d -L 3 -I node_modules"

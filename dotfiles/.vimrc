@@ -113,3 +113,5 @@ set nofixendofline
 " Autorun configs
 autocmd BufWritePre * %s/\s\+$//e
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
+set clipboard=unnamed

@@ -106,10 +106,19 @@ function jlsc {
 
 # Use node-gh to send PR
 # SendPR function for submitting pull requests through nodeGH relating to JIRA tickets
-#function sendPR() {
-#    local branch_name=$(git rev-parse --abbrev-ref HEAD | grep -Eo '([A-Z]{3,}-)([0-9]+)' -m 1)
-#    didYou && gh pr -s "$1" -b "$2" -D "Hi @$1,<br><br>Attached is the fix for [$branch_name](http://issues.liferay.com/browse/$branch_name).<br><br>Let me know if you have any questions. Thanks."
-#}
+function sendPR {
+    function help {
+      echo "SendPR expects <2> arguments: <github_username> and <branch>. Example: sendPR githubuser101 master"
+    }
+
+    if [ -z "$2" ] || [ -z "$1" ]; then
+      help
+      return 1
+    fi
+
+    local branch_name=$(git rev-parse --abbrev-ref HEAD | grep -Eo '([A-Z]{3,}-)([0-9]+)' -m 1)
+    gh pr -s "$1" -b "$2" -D "Hi @$1,<br><br>Attached is the fix for [$branch_name](http://issues.liferay.com/browse/$branch_name).<br><br>Let me know if you have any questions. Thanks."
+}
 
 function jira {
     local branch_name=$(git rev-parse --abbrev-ref HEAD | grep -Eo '([A-Z]{3,}-)([0-9]+)' -m 1)
