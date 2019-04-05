@@ -47,6 +47,7 @@ diffutils
 discord
 dmraid
 dnsmasq
+docker
 dosfstools
 downgrader
 e2fsprogs
@@ -58,12 +59,14 @@ ethtool
 exfat-utils
 f2fs-tools
 fakeroot
+fff
 file
 filesystem
 findutils
 firefox
 flashplugin
 flex
+franz
 fzf
 gawk
 gcc
@@ -74,6 +77,7 @@ git
 glibc
 gnome-bluetooth
 gnu-netcat
+google-chat-linux-git
 google-chrome
 gpm
 grep
@@ -164,10 +168,11 @@ playerctl
 playonlinux
 polybar-git
 postgresql
-postman
+postman-bin
 procps-ng
 psmisc
 pulseaudio-bluetooth
+pycharm-community-edition
 python-gobject
 python-pip
 python-pyqt5
@@ -189,7 +194,7 @@ sed
 shadow
 siji-git
 skypeforlinux-stable-bin
-slack-desktop
+slack-desktop-dark
 splix
 spotify
 squirrel-sql
