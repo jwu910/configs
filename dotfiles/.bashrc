@@ -237,7 +237,7 @@ source ~/configs/includes/.bashrc-liferay
 [ -f ~/.we_autocomplete ] && source ~/.we_autocomplete
 
 # Pacaur backup installed packages
-echo "$(pacaur -Qqe)" > ~/configs/backup/backpac.txt
+#echo "$(pacaur -Qqe)" > ~/configs/backup/backpac.txt
 
 # SSH Key login
 if [ "$MACHINE_NAME" = "PERSONAL" ]; then
