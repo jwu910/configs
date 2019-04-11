@@ -5,7 +5,7 @@
 
 # ANT HOME
 export ANT_OPTS="-Xms512m -Xmx512m -Xmn256M -XX:PermSize=256M -XX:+UseConcMarkSweepGC -XX:-UseGCOverheadLimit"
-
+export JAVA_OPTS="-Xms1024m -Xmx1024m -XX:PermSize=128m -XX:MaxPermSize=256m"
 # Gradle Options
 export GRADLE_OPTS="-Xmx1024m -Xms256m -XX:+CMSClassUnloadingEnabled -XX:+HeapDumpOnOutOfMemoryError"
 
@@ -18,8 +18,10 @@ alias findjsp='for file in `git ls-files | grep -v init | grep .jsp` ; do echo -
 function runserver {
   local repoRoot=$(git rev-parse --show-toplevel 2>/dev/null)
   echo "Starting server..."
-  cd "$repoRoot" && bundles/tomcat*/bin/catalina.sh run | grep -E --color=always 'Server startup in |$' | grep -E --color=always 'Error|Severe|severe|error|Unable|caused by|Caused By|ERROR|not found|thrown an exception|Caused by|Unable|refused|lost|org.apache.catalina.startup.Catalina.start Server startup in|$'
+  cd "$repoRoot" && bundles/tomcat*/bin/catalina.sh run
 }
+
+alias debugserver='./bundles/tomcat*/bin/catalina.sh jpda run'
 
 alias killserver='echo Killing Tomcat && kill -9 `ps aux | grep -v grep | grep tomcat | awk '"'"'{print $2}'"'"'`'
 

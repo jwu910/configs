@@ -159,12 +159,13 @@ alias sbrc="source ~/.bashrc && echo '.bashrc reloaded.'"
 # Restart network manager
 alias restartnetwork="sudo systemctl restart NetworkManager.service && echo Network manager restarting..."
 
-alias clearBuilds='git checkout -- src/**/dist/*'
+alias dropDist='git checkout -- src/**/dist/*'
 alias scrshot='sh ~/configs/scripts/screenshot.sh -s'
 alias fixWatches="echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p"
 alias tr3="tree -d -L 3 -I node_modules"
 alias ff="git ls-files | grep $1"
 alias bl="sudo xbacklight -set $1"
+alias bread="echo 'gotta :clap::skin-tone-3: get :clap::skin-tone-3: that :clap::skin-tone-3: bread :bread:' | xclip -selection c"
 
 # Start github
 function ghub {
