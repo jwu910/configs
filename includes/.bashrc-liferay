@@ -193,3 +193,18 @@ function java7 {
   export JAVA_HOME=/usr/lib/jvm/jdk7;
   export JRE_HOME=/usr/lib/jvm/jdk7;
 }
+
+function mod {
+  if [ -z "$1" ]; then
+    echo "Need to select a codemod."
+    return 1
+  fi
+
+  if [ "$1" = "autobind" ]; then
+    echo "Autobind codemod..."
+    codemod --extensions js -m "(\t(\_)?([A-z]{1,}))\s=\s((\()?([A-z]{0,}([,\sA-z\s=]{1,})?)(\))?)?\s=>\s\{" "\t@autobind\n\1(\6) {"
+  elif [ "$1" = "methods" ]; then
+    echo "Private methods..."
+    codemod --extensions js "(((?<=\.)|(?<=\s))(_)((?!query)\w+))" "\4_"
+  fi
+}
