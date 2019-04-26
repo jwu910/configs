@@ -34,7 +34,7 @@ else
 
         if [ "$confirmation" == "y" ] || [ "$confirmation" != "n" ]; then
             echo "Sending PR to $user..." &&
-            gh pr -s "$user" -b "$target" -t "$branch" -D "Here is an update for [$branch](https://issues.liferay.com/browse/$branch). $description Please let me know if you have any questions, thanks!"
+            gh pr -s "$user" -b "$target" -t "$branch" -D "Here is an update for [$branch](https://issues.liferay.com/browse/$branch).<br />$description <br />Please let me know if you have any questions, thanks!"
 
             exit 0
         fi
