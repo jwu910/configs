@@ -89,9 +89,9 @@ fi
 
 # some more ls aliases
 alias ls='exa --git'
-alias ll='ls -alF'
+alias ll='ls -halF'
 alias la='ls -a'
-alias l='ls -CF'
+alias l='ls -F'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
