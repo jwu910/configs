@@ -258,6 +258,7 @@ function getJIRA(){ git rev-parse --abbrev-ref HEAD | grep -Eo '([A-Z]{3,}-)([0-
 #    MONITOR_NAME="$ACTIVE_MONITOR"
 #fi
 
+export NSCRIPT_EDITOR="code"
 export NSCRIPT_SCRIPT_DIR="/home/joshua/configs/scripts/nscripts"
 export NSCRIPT_EXECUTABLE_DIR="/home/joshua/configs/scripts/nscripts-links"
 
