@@ -172,6 +172,9 @@ alias acd="ant clean deploy"
 
 alias bdd="npm run build:dev && rgcd -x npmRunBuild"
 
+alias rebuild="npm run build && git add src/main/resources/**/dist/* && git cims \"Rebuild\""
+alias buildLang="rungradle buildLang && git add src/main/resources/**/Language* && git cims \"Run gradle buildLang\""
+
 function sfm {
   if [ "$1" ]; then
     git diff --stat --relative --name-only "$1".. | grep -E '.(js|(s)?css)$' | xargs check_sf;
