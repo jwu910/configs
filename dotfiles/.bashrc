@@ -264,6 +264,9 @@ export NSCRIPT_EXECUTABLE_DIR="/home/joshua/configs/scripts/nscripts-links"
 
 eval "$(hub alias -s)"
 
+export FZF_DEFAULT_OPTS="-m --no-mouse -i --inline-info --color=LIGHT --border --margin=1 --preview-window=right --preview='head -100 | bat --theme=zenburn --color=always {}'"
+
+
 #----------------------------------
 
 export WORKON_HOME=$HOME/.virtualenvs
@@ -283,3 +286,5 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
