@@ -264,7 +264,7 @@ export NSCRIPT_EXECUTABLE_DIR="/home/joshua/configs/scripts/nscripts-links"
 
 eval "$(hub alias -s)"
 
-export FZF_DEFAULT_OPTS="-m --no-mouse -i --inline-info --color=LIGHT --border --margin=1 --preview-window=right --preview='head -100 | bat --theme=zenburn --color=always {}'"
+export FZF_DEFAULT_OPTS="-m --no-mouse -i --inline-info --color=LIGHT --border --margin=1 --preview-window=right --preview='head -100 | bat --theme=zenburn --color=always --map-syntax js:babel {}'"
 
 
 #----------------------------------
