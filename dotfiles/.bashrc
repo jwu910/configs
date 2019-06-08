@@ -264,10 +264,26 @@ export NSCRIPT_EXECUTABLE_DIR="/home/joshua/configs/scripts/nscripts-links"
 
 eval "$(hub alias -s)"
 
-export FZF_DEFAULT_OPTS="-m --no-mouse -i --inline-info --color=LIGHT --border --margin=1 --preview-window=right --preview='head -100 | bat --theme=zenburn --color=always --map-syntax js:babel {}'"
+export FZF_DEFAULT_OPTS="-m --no-mouse -i --inline-info --color=LIGHT --border --margin=1"
 
+alias pzf="fzf --preview-window=right --preview='head -100 | bat --theme=zenburn --color=always --map-syntax js:babel {}'"
 
+# fkill - kill processes - list only the ones you can kill. Modified the earlier script.
+fkill() {
+    local pid
+    if [ "$UID" != "0" ]; then
+        pid=$(ps -f -u $UID | sed 1d | fzf -m | awk '{print $2}')
+    else
+        pid=$(ps -ef | sed 1d | fzf -m --preview='' | awk '{print $2}')
+    fi
+
+    if [ "x$pid" != "x" ]
+    then
+        echo $pid | xargs kill -${1:-9}
+    fi
+}
 #----------------------------------
+
 
 export WORKON_HOME=$HOME/.virtualenvs
 source /usr/bin/virtualenvwrapper.sh
