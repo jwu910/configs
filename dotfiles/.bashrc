@@ -164,11 +164,12 @@ alias dropDist='git checkout -- src/**/dist/*'
 alias scrshot='sh ~/configs/scripts/screenshot.sh -s'
 alias fixWatches="echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p"
 alias tr3="tree -d -L 3 -I node_modules"
-alias ff="git ls-files | grep $1"
-alias bl="sudo xbacklight -set $1"
+#alias ff="git ls-files | grep $1"
+alias ff="fzf"
 alias bread="echo 'gotta :clap::skin-tone-3: get :clap::skin-tone-3: that :clap::skin-tone-3: bread :bread:' | xclip -selection c"
+alias odiff="git diff upstream/master --stat --name-only --relative"
 
-# Start github
+# Start github at current project
 function ghub {
 	local remote=${1:-"origin"}
 	local giturl=$(git config --get "remote.${remote}.url")
@@ -281,6 +282,23 @@ fkill() {
     then
         echo $pid | xargs kill -${1:-9}
     fi
+}
+
+# fgst - pick files from `git status -s`
+is_in_git_repo() {
+  git rev-parse HEAD > /dev/null 2>&1
+}
+
+fgst() {
+  # "Nothing to see here, move along"
+  is_in_git_repo || return
+
+  local cmd="${FZF_CTRL_T_COMMAND:-"command git status -s"}"
+
+  eval "$cmd" | FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} --reverse $FZF_DEFAULT_OPTS $FZF_CTRL_T_OPTS" fzf -m "$@" | while read -r item; do
+    echo "$item" | awk '{print $2}'
+  done
+  echo
 }
 #----------------------------------
 
