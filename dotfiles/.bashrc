@@ -267,7 +267,7 @@ eval "$(hub alias -s)"
 
 export FZF_DEFAULT_OPTS="-m --no-mouse -i --inline-info --color=LIGHT --border --margin=1"
 
-alias pzf="fzf --preview-window=right --preview='head -100 | bat --theme=zenburn --color=always --map-syntax js:babel {}'"
+alias pzf="fzf --preview-window=top --preview='head -100 | bat --theme=zenburn --color=always --map-syntax js:babel {}'"
 
 # fkill - kill processes - list only the ones you can kill. Modified the earlier script.
 fkill() {
