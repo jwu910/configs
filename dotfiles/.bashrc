@@ -266,7 +266,7 @@ export NSCRIPT_EXECUTABLE_DIR="/home/joshua/configs/scripts/nscripts-links"
 eval "$(hub alias -s)"
 
 export FZF_DEFAULT_OPTS="-m --no-mouse -i --inline-info --color=LIGHT --border --margin=1"
-
+export FZF_DEFAULT_COMMAND="git ls-files --cached --others --exclude-standard | rg --files --hidden"
 alias pzf="fzf --preview-window=top --preview='head -100 | bat --theme=zenburn --color=always --map-syntax js:babel {}'"
 
 # fkill - kill processes - list only the ones you can kill. Modified the earlier script.
@@ -299,6 +299,19 @@ fgst() {
     echo "$item" | awk '{print $2}'
   done
   echo
+}
+alias glNoGraph='git log --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr% C(auto)%an" "$@"'
+_gitLogLineToHash="echo {} | grep -o '[a-f0-9]\{7\}' | head -1"
+_viewGitLogLine="$_gitLogLineToHash | xargs -I % sh -c 'git show --color=always % | diff-so-fancy'"
+
+
+fshow_preview() {
+    glNoGraph |
+        fzf --no-sort --reverse --tiebreak=index --no-multi \
+            --ansi --preview="$_viewGitLogLine" \
+                --header "enter to view, alt-y to copy hash" \
+                --bind "enter:execute:$_viewGitLogLine   | less -R" \
+                --bind "alt-y:execute:$_gitLogLineToHash | xclip"
 }
 #----------------------------------
 
