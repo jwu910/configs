@@ -37,6 +37,8 @@ Plugin 'vim-airline/vim-airline'
 " Git in vim
 Plugin 'jreybert/vimagit'
 
+Plugin 'prettier/vim-prettier'
+
 " Syntastic -- not sure if installed correctly.
 Plugin 'syntastic'
 " Themes
