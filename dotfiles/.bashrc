@@ -243,9 +243,9 @@ source ~/configs/includes/.bashrc-liferay
 #echo "$(pacaur -Qqe)" > ~/configs/backup/backpac.txt
 
 # SSH Key login
-if [ "$MACHINE_NAME" = "PERSONAL" ]; then
-	eval $(keychain --eval --quiet ~/.ssh/id_rsa)
-fi
+#if [ "$MACHINE_NAME" = "PERSONAL" ]; then
+#	eval $(keychain --eval --quiet ~/.ssh/id_rsa)
+#fi
 
 function getJIRA(){ git rev-parse --abbrev-ref HEAD | grep -Eo '([A-Z]{3,}-)([0-9]+)' -m 1 ; }
 
@@ -267,10 +267,11 @@ eval "$(hub alias -s)"
 
 export FZF_DEFAULT_OPTS="-m --no-mouse -i --inline-info --color=LIGHT --border --margin=1"
 export FZF_DEFAULT_COMMAND="git ls-files --cached --others --exclude-standard | rg --files --hidden"
+
 alias pzf="fzf --preview-window=top --preview='head -100 | bat --theme=zenburn --color=always --map-syntax js:babel {}'"
 
 # fkill - kill processes - list only the ones you can kill. Modified the earlier script.
-fkill() {
+fzfkill() {
     local pid
     if [ "$UID" != "0" ]; then
         pid=$(ps -f -u $UID | sed 1d | fzf -m | awk '{print $2}')
@@ -305,7 +306,7 @@ _gitLogLineToHash="echo {} | grep -o '[a-f0-9]\{7\}' | head -1"
 _viewGitLogLine="$_gitLogLineToHash | xargs -I % sh -c 'git show --color=always % | diff-so-fancy'"
 
 
-fshow_preview() {
+glog() {
     glNoGraph |
         fzf --no-sort --reverse --tiebreak=index --no-multi \
             --ansi --preview="$_viewGitLogLine" \
