@@ -148,9 +148,17 @@ fi
 
 unset color_prompt force_color_prompt
 
-source ~/.envs
-source ~/.tokens
-source /usr/share/autojump/autojump.sh
+if [ -f ~/.envs ]; then
+    source ~/.envs
+fi
+
+if [ -f ~/.tokens ]; then
+    source ~/.tokens
+fi
+
+if [ -f /usr/share/autojump/autojump.sh ]; then
+    source /usr/share/autojump/autojump.sh
+fi
 
 # Shortcut to open bashrc
 alias brc="vim ~/.bashrc"
@@ -314,8 +322,8 @@ glog() {
                 --bind "enter:execute:$_viewGitLogLine   | less -R" \
                 --bind "alt-y:execute:$_gitLogLineToHash | xclip"
 }
-#----------------------------------
 
+#----------------------------------
 
 export WORKON_HOME=$HOME/.virtualenvs
 source /usr/bin/virtualenvwrapper.sh

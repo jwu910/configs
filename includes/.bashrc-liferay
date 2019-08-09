@@ -27,6 +27,8 @@ alias killserver='echo Killing Tomcat && kill -9 `ps aux | grep -v grep | grep t
 
 alias rgcd='rungradle clean deploy'
 
+alias rootLevel="git rev-parse --show-toplevel 2>/dev/null"
+
 # Git Format Patch
 # Usage: fp <# of commits> <Commit Sha>
 # Example: `fp 3 34s3446e`
@@ -165,15 +167,13 @@ function fixSql {
 }
 
 alias setMonitor="sh ~/configs/scripts/work-extended-primary.sh"
-
 alias i3config="vim ~/configs/i3/config"
-
 alias acd="ant clean deploy"
-
 alias bdd="npm run build:dev && rgcd -x npmRunBuild"
-
 alias rebuild="npm run build && git add src/main/resources/**/dist/* && git cims \"Rebuild\""
 alias buildLang="rungradle buildLang && git add src/main/resources/**/Language* && git cims \"Run gradle buildLang\""
+alias dstart="./gradlew startDxpCloudLocal"
+alias dstop="./gradlew stopDxpCloudLocal"
 
 function sfm {
   if [ "$1" ]; then
@@ -183,19 +183,19 @@ function sfm {
   fi
 }
 
-function java8 {
-  sudo update-alternatives --set java /usr/lib/jvm/java-8-oracle/bin/java;
-  sudo update-alternatives --set javac /usr/lib/jvm/java-8-oracle/bin/javac;
-  export JAVA_HOME=/usr/lib/jvm/java-8-oracle/jre;
-  export JRE_HOME=/usr/lib/jvm/java-8-oracle/jre;
-}
+#function java8 {
+#  sudo update-alternatives --set java /usr/lib/jvm/jdk8/bin/java;
+#  sudo update-alternatives --set javac /usr/lib/jvm/jdk8/bin/javac;
+#  export JAVA_HOME=/usr/lib/jvm/jdk8/jre;
+#  export JRE_HOME=/usr/lib/jvm/jdk8/jre;
+#}
 
-function java7 {
-  sudo update-alternatives --set java /usr/lib/jvm/jdk7/bin/java;
-  sudo update-alternatives --set javac /usr/lib/jvm/jdk7/bin/javac;
-  export JAVA_HOME=/usr/lib/jvm/jdk7;
-  export JRE_HOME=/usr/lib/jvm/jdk7;
-}
+#function java7 {
+#  sudo update-alternatives --set java /usr/lib/jvm/jdk7/bin/java;
+#  sudo update-alternatives --set javac /usr/lib/jvm/jdk7/bin/javac;
+#  export JAVA_HOME=/usr/lib/jvm/jdk7;
+#  export JRE_HOME=/usr/lib/jvm/jdk7;
+#}
 
 function mod {
   if [ -z "$1" ]; then
