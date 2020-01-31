@@ -1,5 +1,0 @@
-#!/bin/bash
-
-echo "This is echoing from mod"
-echo "Script file is at /home/joshua/configs/scripts/nscripts/mod"
-echo "Symlink is at /home/joshua/configs/scripts/nscripts-links/mod"

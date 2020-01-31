@@ -44,7 +44,7 @@ else
 	if [ "$CONFIRM" == "Y" ] ; then
 		openFiles
 	else
-		echo "Canceled opening files."
+		echo "Cancelled opening files."
 
 		exit 1
 	fi

@@ -39,6 +39,9 @@ Plugin 'jreybert/vimagit'
 
 Plugin 'prettier/vim-prettier'
 
+" Commentary
+Plugin 'tpope/commentary'
+
 " Syntastic -- not sure if installed correctly.
 Plugin 'syntastic'
 " Themes

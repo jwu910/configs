@@ -172,8 +172,7 @@ alias dropDist='git checkout -- src/**/dist/*'
 alias scrshot='sh ~/configs/scripts/screenshot.sh -s'
 alias fixWatches="echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p"
 alias tr3="tree -d -L 3 -I node_modules"
-#alias ff="git ls-files | grep $1"
-alias ff="fzf"
+alias ff="git ls-files | grep $1"
 alias bread="echo 'gotta :clap::skin-tone-3: get :clap::skin-tone-3: that :clap::skin-tone-3: bread :bread:' | xclip -selection c"
 alias odiff="git diff upstream/master --stat --name-only --relative"
 
@@ -194,7 +193,7 @@ if [ -d "$HOME/.bin" ] ; then
   PATH="$PATH:$HOME/.bin"
 fi
 
-export BROWSER="/usr/bin/google-chrome-stable"
+export BROWSER="/usr/bin/firefox"
 
     # Git Gud
 function gitGud {
@@ -241,6 +240,8 @@ function cdn(){ for i in `seq $1`; do cd ..; done;}
 export PATH="$PATH:/home/joshua/configs/scripts"
 
 export TEXT_EDITOR="code"
+export LESS=-R
+
 
 source ~/configs/includes/.bashrc-liferay
 
@@ -323,6 +324,10 @@ glog() {
                 --bind "alt-y:execute:$_gitLogLineToHash | xclip"
 }
 
+
+function findNodeModules() { find . -name "node_modules" -type d -prune -mtime +30 -print | xargs du -chs ; }
+
+function cleanBranch() { git pd "$1" && git db-all "$1" ; }
 #----------------------------------
 
 export WORKON_HOME=$HOME/.virtualenvs

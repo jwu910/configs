@@ -2,7 +2,12 @@
 	tr1=log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
 	tr2=log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n'' %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
 
-	# Git log search Expanded - Takes search string as first parameter - Displays file's changed in each commit
+    dsf = "!f() { [ -z "\"$GIT_PREFIX\"" ] || cd "\"$GIT_PREFIX\"" && git diff --color --ignore-all-space "\"$@\"" | diff-so-fancy  | less --tabs=4 -RFX; }; f"
+
+    # Blame train
+    bt = "!f() { git log -p -M --follow --stat -- $1; };f"
+
+# Git log search Expanded - Takes search string as first parameter - Displays file's changed in each commit
 	lse =  "!f() { git --no-pager log --stat --grep $1 --pretty=format:'%C(yellow)%h%Creset %C(white)%s - %an%Creset (%C(green)%ar%Creset)'; }; f"
 
 	# Git log search Compact - Takes search string as first parameter - Displays compact view of commit information
@@ -25,6 +30,12 @@
 
 	# Fetch and prune origin
 	fpv = "!f() { git fetch $1 -pv; }; f"
+
+    pd = "!f() { git checkout $1 && git checkout master; }; f"
+
+    purge = "!f() { git pd $1 && git db-all $1; }; f"
+
+    lgc = "!f() { git log $(git merge-base "$1" HEAD)..HEAD; }; f"
 
 	# Git Tools
 	## Committing

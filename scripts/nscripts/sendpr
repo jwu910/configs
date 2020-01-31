@@ -2,7 +2,7 @@
 
 
 branch=$(git rev-parse --abbrev-ref HEAD | grep -Eo '([A-Z]{2,}-)([0-9]+)' -m 1)
-number = ""
+number=""
 
 if [ -z $(command -v gh) ]; then
     echo "This script is dependent on having node-gh installed."
